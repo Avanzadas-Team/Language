@@ -21,7 +21,7 @@ describe('HttpService', () => {
   });
 
   it('should get all users (Not a null or undifined JSON obejct)', () => {
-    var users = service.getUsers();
+    var users = service.GetUsers();
     expect(users).not.toBe(undefined);
   });
 
