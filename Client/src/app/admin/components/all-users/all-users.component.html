@@ -1,16 +1,33 @@
-<div class="contaniner-xl">
-    <div class="jumbotron jumbotron-fluid rounded" id="jumboAD">
+<div class="container-fluid">
+    <div class="jumbotron jumbotron-fluid rounded" id="jumboAU">
         <div class="container">
-          <h1 class="display-1">Check All Registered Users</h1>
-          <p class="h3">¿No encuentras tu película favorita en nuestro sistema?</p>
-          <p class="h5">Ayudanos a extender nuestro catálogo de películas :)</p>
-          <p class="lead"> Llena los campos presentados a continuación con la información de la película que deseas agregar.</p>
-          <br>
+          <h1 class="display-1">Registered Users</h1>
           <hr class="my-4">
-          <blockquote class="blockquote text-center">
-            <p class="mb-0">You now what they call a Quarter Pounder with Cheese in France?</p>
-            <footer class="blockquote-footer">Jules Winnfield, <cite title="Source Title">Pulp Fiction</cite></footer>
-          </blockquote>
+          <p class="h4">This page shows all the registered users, their origin country and which languages they're intrested in learning.</p>
         </div>
       </div>
 </div>
+<ng-container>
+    <div class="container-fluid">
+        <table class="table table-hover text-center">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Country</th>
+                    <th>Languages</th>
+                </tr>
+            </thead>
+            <tbody class="scrollable">
+                <tr *ngFor="let user of users$" >
+                    <td>{{user.nombre}}</td>
+                    <td>{{user.pOrigen}}</td>
+                    <td>
+                        <ul *ngFor="let lang of user.idiomasApr">
+                            <li>{{lang.iNombre}}</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</ng-container>
