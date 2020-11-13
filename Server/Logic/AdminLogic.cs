@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using Server.Services;
 using Server.Models;
+using System.Text;
 
 namespace Server.Logic
 {
@@ -15,14 +16,16 @@ namespace Server.Logic
             Users temp = new Users();
             foreach(Usuario u in context.Get())
             {
-                temp.name = u.Nombre;
-                temp.country = u.POrigen;
+                temp.Name = u.Nombre;
+                temp.Country = u.POrigen;
 
-                foreach (Idioma i in u.IdiomasApr)
+                StringBuilder bld = new StringBuilder();
+                for (int i = 0; i < u.IdiomasApr.Count; ++i)
                 {
-                    temp.languages =temp.languages + i.INombre + " ";
+                    bld.Append(u.IdiomasApr[i].INombre);
+                    bld.Append(" ");
                 }
-                Console.WriteLine(temp.languages);
+                temp.Langs = bld.ToString();
                 userList.Add(temp);
             }
             return userList;

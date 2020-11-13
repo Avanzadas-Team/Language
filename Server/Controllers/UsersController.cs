@@ -14,8 +14,7 @@ namespace Server.Controllers
     public class UsersController : ControllerBase
     {
         private readonly UserContext _userService;
-        private AdminLogic _al;
-
+        private readonly AdminLogic _al;
 
         public UsersController(UserContext userService)
         {
