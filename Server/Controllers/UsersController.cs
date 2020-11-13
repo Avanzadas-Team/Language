@@ -30,6 +30,7 @@ namespace Server.Controllers
             return _userService.Get();
         }
 
+        // GET: users/All
         [HttpGet("All")]
         public List<Users> GetUsers()
         {
