@@ -31,7 +31,7 @@ export class HttpService {
 
   //Http Service Methods
   GetUsers() { // gets all user from the DB, returns JSON Objects with all users.
-    return this.http.get(this.devURL + 'users'); //Change the restURl # as needed. 
+    return this.http.get(this.devURL + 'users/All'); //Change the restURl # as needed. 
     //return this.http.get(this.rest2URL + 'users'); 
     //return this.http.get(this.rest3URL + 'users');
   }

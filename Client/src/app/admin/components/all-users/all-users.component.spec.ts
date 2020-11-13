@@ -8,9 +8,9 @@ describe('AllUsersComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AllUsersComponent ]
+      declarations: [AllUsersComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +21,10 @@ describe('AllUsersComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should get all users (Not a null or undifined JSON obejct)', () => {
+    var users = component.GetUsersInfo();
+    expect(users).not.toBe(undefined);
   });
 });

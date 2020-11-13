@@ -19,13 +19,9 @@
             </thead>
             <tbody class="scrollable">
                 <tr *ngFor="let user of users$" >
-                    <td>{{user.nombre}}</td>
-                    <td>{{user.pOrigen}}</td>
-                    <td>
-                        <ul *ngFor="let lang of user.idiomasApr">
-                            <li>{{lang.iNombre}}</li>
-                        </ul>
-                    </td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.country}}</td>
+                    <td>{{user.languages}}</td>
                 </tr>
             </tbody>
         </table>
