@@ -12,16 +12,16 @@
         <table class="table table-hover text-center" aria-describedby="Registered Users">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Country</th>
-                    <th scope="col">Languages</th>
+                    <th>Name</th>
+                    <th>Country</th>
+                    <th>Languages</th>
                 </tr>
             </thead>
             <tbody class="scrollable">
                 <tr *ngFor="let user of users$" >
-                    <td scope="row">{{user.name}}</td>
-                    <td scope="row">{{user.country}}</td>
-                    <td scope="row">{{user.langs}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.country}}</td>
+                    <td>{{user.langs}}</td>
                 </tr>
             </tbody>
         </table>

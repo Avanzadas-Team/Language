@@ -25,7 +25,7 @@ namespace Server.Logic
                     bld.Append(u.IdiomasApr[i].INombre);
                     bld.Append(" ");
                 }
-                temp.Langs = bld.ToString();
+                temp.Languages = bld.ToString();
                 userList.Add(temp);
             }
             return userList;
