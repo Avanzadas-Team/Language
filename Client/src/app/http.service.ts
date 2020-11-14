@@ -7,11 +7,11 @@ import { HttpClient } from '@angular/common/http';
 export class HttpService {
 
   /*If a module needs to implement the http service import the HttpClient module
-      import { HttpClient } from '@angular/common/http';
+      import { HttpClientModule } from '@angular/common/http';
     into your module .module.ts imports section under @NgModule 
 
-    Then add the http client using dependency injection by adding it into your component .ts constructor
-      constructor(private http: HttpClient) { }
+    Then add the http service using dependency injection by adding it into your component .ts constructor
+      constructor(private http: HttpService) { }
     this way you can use the http service methods described in this file under the Http Service Methods section
       this.http.MethodName();
   */
@@ -31,7 +31,7 @@ export class HttpService {
 
   //Http Service Methods
   GetUsers() { // gets all user from the DB, returns JSON Objects with all users.
-    return this.http.get(this.rest1URL + 'users'); //Change the restURl # as needed. 
+    return this.http.get(this.devURL + 'users/All'); //Change the restURl # as needed. 
     //return this.http.get(this.rest2URL + 'users'); 
     //return this.http.get(this.rest3URL + 'users');
   }
