@@ -38,7 +38,7 @@ namespace Server.Logic
             var amount = GetAmount(countryList, context.Get());
             UsersPerCountry upc = new UsersPerCountry();
             List<UsersPerCountry> query = new List<UsersPerCountry>();
-            for(int i=0; i < countryList.Count(); i++)
+            for(int i=0; i < countryList.Count; i++)
             {
                 upc.Country = countryList.ElementAt(i);
                 upc.Amount = amount.ElementAt(i);
@@ -57,7 +57,7 @@ namespace Server.Logic
                 {
                     countryList.Add(u.POrigen);
                 }
-                else if (countryList.Contains(u.POrigen) == false)
+                else if (!(countryList.Contains(u.POrigen)))
                 {
                     countryList.Add(u.POrigen);
                 }
