@@ -37,7 +37,7 @@ export class HttpService {
   }
 
   GetUsersPerCountry() {
-    return this.http.get(this.devURL + 'upc');
+    return this.http.get(this.rest1URL + 'upc');
   }
 
 }
