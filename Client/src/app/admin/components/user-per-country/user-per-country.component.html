@@ -17,9 +17,9 @@
                 </tr>
             </thead>
             <tbody class="scrollable">
-                <tr>
-                    <td></td>
-                    <td></td>
+                <tr *ngFor="let c of countries$" >
+                    <td>{{c.country}}</td>
+                    <td>{{c.amount}}</td>
                 </tr>
             </tbody>
         </table>

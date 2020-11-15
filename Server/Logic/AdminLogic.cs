@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Server.Services;
 using Server.Models;
 using System.Text;
+using System.Linq;
 
 namespace Server.Logic
 {
@@ -29,5 +30,59 @@ namespace Server.Logic
             }
             return userList;
         }
-    }
+
+
+        public List<UsersPerCountry> GetUsersPerCountry(UserContext context)
+        {
+            var countryList = GetCountries(context.Get());
+            var amount = GetAmount(countryList, context.Get());
+            UsersPerCountry upc = new UsersPerCountry();
+            List<UsersPerCountry> query = new List<UsersPerCountry>();
+            for(int i=0; i < countryList.Count(); i++)
+            {
+                upc.Country = countryList.ElementAt(i);
+                upc.Amount = amount.ElementAt(i);
+                query.Add(upc);
+            }
+            return query;
+        }
+
+
+        protected List<string> GetCountries(List<Usuario> users)
+        {
+            List<string> countryList = new List<string>();
+            foreach (Usuario u in users)
+            {
+                if ((countryList != null) && (!countryList.Any()))
+                {
+                    countryList.Add(u.POrigen);
+                }
+                else if (countryList.Contains(u.POrigen) == false)
+                {
+                    countryList.Add(u.POrigen);
+                }
+            }
+
+            return countryList;
+        }
+
+        protected List<int> GetAmount(List<string> countries, List<Usuario> users)
+        {
+                List<int> countList = new List<int>();
+                foreach (string c in countries)
+                {
+                    var count = 0;
+                    foreach (Usuario u in users)
+                    {
+                        if (c == u.POrigen)
+                        {
+                            count++;
+                        }
+                    }
+                    countList.Add(count);
+                }
+                return countList;
+            }
+        }
+
 }

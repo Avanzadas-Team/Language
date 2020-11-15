@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllUsersComponent implements OnInit {
   users$;
-  langs$;
   constructor(private http: HttpService) { }
 
   ngOnInit(): void {
@@ -18,7 +17,6 @@ export class AllUsersComponent implements OnInit {
   GetUsersInfo() {
     var request = Array.of(this.http.GetUsers().subscribe(data => {
       this.users$ = data;
-      console.log("USERS", data)
     }));
     return request;
   }
