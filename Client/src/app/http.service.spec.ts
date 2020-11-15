@@ -25,4 +25,9 @@ describe('HttpService', () => {
     expect(users).not.toBe(undefined);
   });
 
+  it('should get all registered users per country (Not a null or undifined JSON obejct)', () => {
+    var users = service.GetUsersPerCountry();
+    expect(users).not.toBe(undefined);
+  });
+
 });
