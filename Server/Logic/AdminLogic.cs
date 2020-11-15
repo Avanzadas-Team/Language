@@ -53,7 +53,7 @@ namespace Server.Logic
             List<string> countryList = new List<string>();
             foreach (Usuario u in users)
             {
-                if ((countryList != null) && (!countryList.Any()))
+                if ((!countryList.Any()))
                 {
                     countryList.Add(u.POrigen);
                 }
