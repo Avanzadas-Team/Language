@@ -1,0 +1,29 @@
+<div class="container-fluid">
+    <div class="jumbotron jumbotron-fluid rounded" id="jumboAU">
+        <div class="container">
+          <h1 class="display-1">Registered Users</h1>
+          <hr class="my-4">
+          <p class="h4">This page shows all the registered users, their origin country and which languages they're intrested in learning.</p>
+        </div>
+      </div>
+</div>
+<ng-container>
+    <div class="container-fluid">
+        <table class="table table-hover text-center" aria-describedby="Registered Users">
+            <thead class="thead-dark">
+                <tr>
+                    <th id="header">Name</th>
+                    <th id="header">Country</th>
+                    <th id="header">Languages</th>
+                </tr>
+            </thead>
+            <tbody class="scrollable">
+                <tr *ngFor="let user of users$" >
+                    <td>{{user.name}}</td>
+                    <td>{{user.country}}</td>
+                    <td>{{user.langs}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</ng-container>
