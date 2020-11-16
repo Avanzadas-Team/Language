@@ -1,3 +1,5 @@
+import { Language } from './../../models/language';
+import { HttpService } from './../../../http.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,15 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterModuleComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http : HttpService) { }
 
   name : string;
 
+  lang : Language;
+
   age : number;
+
+  level : number;
 
   sexuality : string;
 
   country : string;
+
+  response;
 
   teach : string;
 
@@ -55,7 +63,18 @@ export class RegisterModuleComponent implements OnInit {
   }
 
   register(){
-    //enviar a función de httpservice
+    var user = { nombre: this.name,
+    edad: this.age, porigen: this.country,
+    sexo: this.sexuality, idiomasens: this.toteach,
+    idiomasapr: this.tolearn, medioprac: this.allmedium,
+    hobbies: this.hobbies, TipoU: 2 };
+    console.log(user);
+    this.http.registerUser(user).subscribe(r => {
+      console.log("RESPONSE",r)});
+  }
+
+  addMedium(){
+    this.allmedium.push(this.medium);
   }
 
 

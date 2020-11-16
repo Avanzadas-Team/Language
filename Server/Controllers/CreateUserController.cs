@@ -20,17 +20,18 @@ namespace Server.Controllers
         [HttpPost]
         public int register(Usuario user)
         {
-            Usuario u = new Usuario();
+            /*Usuario u = new Usuario();
 
             u.IdiomasApr = user.IdiomasApr;
             u.MedioPrac = user.MedioPrac;
             u.Nombre = user.Nombre;
             u.POrigen = user.POrigen;
             u.Sexo = user.Sexo;
-            u.TipoU = user.TipoU;
             u.Hobbies = user.Hobbies;
             u.Edad = user.Edad;
-
+            u.TipoU = 2;
+            u.IdiomasEns = user.IdiomasEns;
+            */
             //_context.Create(u);
             return 1;
         }

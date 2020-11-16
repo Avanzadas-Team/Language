@@ -1,43 +1,43 @@
     <div style="text-align: center; margin-left: 15%; margin-right: 15%; margin-top: 5%;">
-    <label for="">Nombre:</label>
-    <input type="text" class="form-control" [(ngModel)]="name">
-    <label for="">Edad</label>
-    <input type="number" class="form-control" [(ngModel)]="age">
-    <label for="">Sexo</label>
-    <select name="" id="" class="form-control" [(ngModel)]="sexuality">
+    <label for="name">Nombre:</label>
+    <input type="text" class="form-control" id="name" [(ngModel)]="name">
+    <label for="age">Edad</label>
+    <input type="number" id="age" class="form-control" [(ngModel)]="age">
+    <label for="sexuality">Sexo</label>
+    <select name="" id="sexuality" class="form-control" [(ngModel)]="sexuality">
         <option value="Masculino">Masculino</option>
         <option value="Femenino">Femenino</option>
     </select>
-    <label for="">País</label>
-    <input type="text" class="form-control" [(ngModel)]="country">
+    <label for="country">País</label>
+    <input type="text" id="country" class="form-control" [(ngModel)]="country">
     <div>
-        <label for="">Idioma(s) a aprender/practicar: </label>
-        <select type="text" class="form-control"  [(ngModel)]="teach">
+        <label for="leng">Idioma(s) a aprender/practicar: </label>
+        <select type="text" id="leng" class="form-control"  [(ngModel)]="teach">
             <option *ngFor="let i of idioms" [value]="i">{{ i }}</option>
         </select>
         <button class="btn btn-dark" (click)="addIdiomsToTeach()">Agregar</button>
     </div>
     <div>
-        <label for="">Idioma(s) a enseñar:</label>
-        <select type="text" class="form-control"  [(ngModel)]="learn">
+        <label for="lengu">Idioma(s) a enseñar:</label>
+        <select type="text" id="lengu" class="form-control"  [(ngModel)]="learn">
             <option *ngFor="let i of idioms" [value]="i">{{ i }}</option>
         </select>
         <button class="btn btn-dark" (click)="addIdiomsToLearn()">Agregar</button>
     </div>
     <div>
-        <label for="">Hobbies:</label>
-        <input type="text" class="form-control" [(ngModel)]="hobbie">
+        <label for="hob">Hobbies:</label>
+        <input type="text" id="hob" class="form-control" [(ngModel)]="hobbie">
         <button class="btn btn-dark" (click)="addHobbie()">Agregar</button>
     </div>
-    <label for="">Medio por el cual desea practicar:</label>
+    <label for="med">Medio por el cual desea practicar:</label>
     <div>
-        <select name="" id="" class="form-control" [(ngModel)]="medium">
+        <select name="med" id="med" class="form-control" [(ngModel)]="medium">
             <option value="skype">Skype</option>
             <option value="whatsapp">Whatsapp</option>
             <option value="intercambio">Página de intercambio</option>
             <option value="persona">En persona</option>
         </select>
-        <button class="btn btn-dark">Agregar</button>
+        <button class="btn btn-dark" (click)="addMediums()">Agregar</button>
     </div>
-    <button class="btn btn-dark">Crear</button>
+    <button (click) = "register()" class="btn btn-dark">Crear</button>
     </div>

@@ -36,4 +36,8 @@ export class HttpService {
     //return this.http.get(this.rest3URL + 'users');
   }
 
+  registerUser(user){
+    return this.http.post(this.devURL + "createuser",user);
+  }
+
 }
