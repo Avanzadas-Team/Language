@@ -37,9 +37,9 @@ export class HttpService {
   }
 
   registerUser(user){
-    return this.http.post(this.devURL + "createuser",user);
+    return this.http.post(this.rest1URL + "createuser",user);
   }
-  
+
   GetUsersPerCountry() {
     return this.http.get(this.rest1URL + 'upc');
   }
