@@ -35,6 +35,9 @@ namespace Server.Models
         [BsonElement("TipoU")]
         public int TipoU { get; set; }
 
+        [BsonElement("IdiomasEns")]
+        public List<Idioma> IdiomasEns { get; set; }
+
 
     }
 }
