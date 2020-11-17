@@ -20,7 +20,7 @@ namespace Server.Controllers
         [HttpPost]
         public int register(Usuario user)
         {
-            /*Usuario u = new Usuario();
+            Usuario u = new Usuario();
 
             u.IdiomasApr = user.IdiomasApr;
             u.MedioPrac = user.MedioPrac;
@@ -31,8 +31,8 @@ namespace Server.Controllers
             u.Edad = user.Edad;
             u.TipoU = 2;
             u.IdiomasEns = user.IdiomasEns;
-            */
-            //_context.Create(u);
+            
+            _context.Create(u);
             return 1;
         }
     }

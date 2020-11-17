@@ -1,4 +1,3 @@
-import { Language } from './../../models/language';
 import { HttpService } from './../../../http.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -13,11 +12,15 @@ export class RegisterModuleComponent implements OnInit {
 
   name : string;
 
-  lang : Language;
-
   age : number;
 
-  level : number;
+  lvlL : number = -1;
+
+  lvlT : number = -1;
+
+  levelT : number;
+
+  levelL : number;
 
   sexuality : string;
 
@@ -25,11 +28,19 @@ export class RegisterModuleComponent implements OnInit {
 
   response;
 
+  user = { nombre: "",
+    edad: 0, porigen: "",
+    sexo: "", idiomasens: [{inombre: "", nivelc: 0}],
+    idiomasapr: [{inombre: "", nivelc: 0}], medioprac: [],
+    hobbies: [], TipoU: 2 };
+
   teach : string;
 
-  idioms = ["Español", "Inglés", "Alemán", "Italiano", "Portugues", "Frances", "Japones", "Mandarín"];
+  idioms = ["Spanish", "English", "German", "Italian", "Portuguese", "French", "Japanese", "Mandarin"];
 
   toteach : string[] = [];
+
+  lvlTeach : number;
 
   learn : string;
 
@@ -46,35 +57,47 @@ export class RegisterModuleComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onToLearnChange(){
+    this.lvlL = 1;
+  }
+
+  onToTeachChange(){
+    this.lvlT = 1;
+  }
+
   addIdiomsToTeach(){
-    this.toteach.push(this.teach);
+    this.user.idiomasapr.push({inombre: this.teach, nivelc: this.lvlTeach});
+    this.lvlT = -1;
+    this.teach = "";
   }
 
   addIdiomsToLearn(){
-    this.tolearn.push(this.learn);
+    this.user.idiomasens.push({inombre: this.learn, nivelc: this.levelL});
+    this.learn = "";
+    this.lvlL = -1;
   }
 
   addMediums(){
-    this.allmedium.push(this.medium);
+    this.user.medioprac.push(this.medium);
   }
 
   addHobbie(){
-    this.hobbies.push(this.hobbie);
+    this.user.hobbies.push(this.hobbie);
   }
 
   register(){
-    var user = { nombre: this.name,
-    edad: this.age, porigen: this.country,
-    sexo: this.sexuality, idiomasens: this.toteach,
-    idiomasapr: this.tolearn, medioprac: this.allmedium,
-    hobbies: this.hobbies, TipoU: 2 };
-    console.log(user);
-    this.http.registerUser(user).subscribe(r => {
+    this.user.nombre = this.name;
+    this.user.edad = this.age;
+    this.user.porigen = this.country;
+    this.user.sexo = this.sexuality;
+    this.user.idiomasapr.shift();
+    this.user.idiomasens.shift();
+    this.http.registerUser(this.user).subscribe(r => {
       console.log("RESPONSE",r)});
   }
 
   addMedium(){
-    this.allmedium.push(this.medium);
+    this.user.medioprac.push(this.medium);
   }
 
 

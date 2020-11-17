@@ -1,3 +1,4 @@
+import { HttpService } from './../http.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -14,6 +15,14 @@ import { RegisterModuleComponent } from './components/register-module/register-m
     FormsModule,
     ReactiveFormsModule
   ],
-  exports : [RegisterModuleComponent]
+  exports : [
+    RegisterModuleComponent
+  ],
+  providers : [
+    HttpService
+  ],
+  bootstrap: [
+    RegisterModuleComponent
+  ]
 })
 export class RegisterModule { }
