@@ -1,23 +1,19 @@
-<div class="container-fluid">
-    <div class="jumbotron jumbotron-fluid rounded" id="jumboAU">
-        <div class="container">
-          <h1 class="display-1">Registered Users</h1>
-          <hr class="my-4">
-          <p class="h4">This page shows all the registered users, their origin country and which languages they're intrested in learning.</p>
-        </div>
-      </div>
+<div class="container-fluid" id="jumboAU">
+    <h1 class="display-1 text-left" id="title">Registered Users.</h1>
+    <hr class="my-4">
+    <p class="h4" id="desc">This page shows all the registered users, their origin country and which languages they're intrested in learning.</p>
 </div>
 <ng-container>
     <div class="container-fluid">
-        <table class="table table-hover text-center" aria-describedby="Registered Users">
-            <thead class="thead-dark">
+        <table class="table table-hover text-center" aria-describedby="Registered Users" id="table1">
+            <thead id="th" style="background-color: #e9e9e9;">
                 <tr>
                     <th id="header">Name</th>
                     <th id="header">Country</th>
                     <th id="header">Languages</th>
                 </tr>
             </thead>
-            <tbody class="scrollable">
+            <tbody class="scrollable" id="tb" style="background-color: #e9e9e9;">
                 <tr *ngFor="let user of users$" >
                     <td>{{user.name}}</td>
                     <td>{{user.country}}</td>

@@ -14,9 +14,9 @@ namespace Server.Logic
         {
             List<Users> userList = new List<Users>();
            
-            Users temp = new Users();
             foreach(Usuario u in context.Get())
             {
+                Users temp = new Users();
                 temp.Name = u.Nombre;
                 temp.Country = u.POrigen;
 
@@ -37,10 +37,10 @@ namespace Server.Logic
         {
             var countryList = GetCountries(context.Get());
             var amount = GetAmount(countryList, context.Get());
-            UsersPerCountry upc = new UsersPerCountry();
             List<UsersPerCountry> query = new List<UsersPerCountry>();
             for(int i=0; i < countryList.Count; i++)
             {
+                UsersPerCountry upc = new UsersPerCountry();
                 upc.Country = countryList.ElementAt(i);
                 upc.Amount = amount.ElementAt(i);
                 query.Add(upc);

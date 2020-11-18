@@ -1,22 +1,18 @@
-<div class="container-fluid">
-    <div class="jumbotron jumbotron-fluid rounded" id="jumboAU">
-        <div class="container">
-          <h1 class="display-1">Total Users by Country</h1>
-          <hr class="my-4">
-          <p class="h4">This page shows the amount of registered users by country.</p>
-        </div>
-      </div>
+<div class="container-fluid" id="jumboAU">
+    <h1 class="display-1 text-left" id="title">Total Users by Country.</h1>
+    <hr class="my-4">
+    <p class="h4" id="desc">This page shows the amount of registered users by country.</p>
 </div>
-<ng-container>
-    <div class="container-fluid">
-        <table class="table table-hover text-center" aria-describedby="Users by Country">
-            <thead class="thead-dark">
+<div class="container-fluid">
+    <div class="container-fluid rounded" id="div">
+        <table class="table table-hover text-center" aria-describedby="Users by Country" id="table1">
+            <thead id="th" style="background-color: #e9e9e9;">
                 <tr>
                     <th id="header">Country</th>
                     <th id="header">Amount of Users</th>
                 </tr>
             </thead>
-            <tbody class="scrollable">
+            <tbody class="scrollable" id="tb" style="background-color: #e9e9e9;">
                 <tr *ngFor="let c of countries$" >
                     <td>{{c.country}}</td>
                     <td>{{c.amount}}</td>
@@ -24,4 +20,4 @@
             </tbody>
         </table>
     </div>
-</ng-container>
+</div>
