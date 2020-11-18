@@ -45,11 +45,11 @@ export class HttpService {
   }
 
   GetUsersPerTLang() {
-    return this.http.get(this.devURL + 'upl/teach');
+    return this.http.get(this.rest1URL + 'upl/teach');
   }
 
   GetUsersPerLLang() {
-    return this.http.get(this.devURL + 'upl/learn');
+    return this.http.get(this.rest1URL + 'upl/learn');
   }
 
 
