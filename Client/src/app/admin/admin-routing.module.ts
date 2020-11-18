@@ -7,7 +7,7 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   { path: 'Admin/Users', component: AllUsersComponent },
   { path: 'Admin/Country', component: UserPerCountryComponent },
-  { path: 'Admin/TLangs', component: UsersTeachLangComponent }
+  { path: 'Admin/Languages', component: UsersTeachLangComponent }
 ];
 
 @NgModule({
