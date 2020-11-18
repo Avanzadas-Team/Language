@@ -1,64 +1,62 @@
-<div class="container-fluid">
-    <div class="jumbotron jumbotron-fluid rounded" id="jumboAU">
-        <div class="container">
-          <h1 class="display-1">Register User</h1>
-          <hr class="my-4">
-          <p class="h4">This page allows you to register an user on the platform.</p>
-        </div>
-      </div>
+<div class="container-fluid" id="jumboAU">
+    <h1 class="display-1 text-center" id="title">Register a New User.</h1>
+    <hr class="my-4">
+    <p class="h4 text-center" id="desc">This page allows you to register an user on the platform.</p>
 </div>
-<div style="text-align: center; margin-left: 15%; margin-right: 15%; margin-top: 5%;">
-    <label for="name">Name:</label>
-    <input type="text" class="form-control" id="name" [(ngModel)]="name">
-    <label for="age">Age</label>
-    <input type="number" id="age" class="form-control" [(ngModel)]="age">
-    <label for="sexuality">Sexuality</label>
-    <select name="" id="sexuality" class="form-control" [(ngModel)]="sexuality">
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-    </select>
-    <label for="country">Country</label>
-    <input type="text" id="country" class="form-control" [(ngModel)]="country">
-    <div>
-        <label for="leng"> Languages ​​to learn: </label>
-        <select type="text" id="leng" class="form-control" (change)="onToLearnChange()" [(ngModel)]="learn">
-            <option *ngFor="let i of idioms" [value]="i">{{ i }}</option>
+<div class="container-lg rounded" id="div">
+    <div style="text-align: center; margin-left: 15%; margin-right: 15%; margin-top: 5%;">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="name">
+        <label for="age">Age</label>
+        <input type="number" id="age" class="form-control" [(ngModel)]="age">
+        <label for="sexuality">Sexuality</label>
+        <select name="" id="sexuality" class="form-control" [(ngModel)]="sexuality">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
         </select>
-        <label for="lvl" *ngIf="lvlL != -1">Knowledge level: </label>
-        <select class="form-control" name="lvl" id="lvl" *ngIf="lvlL != -1" [(ngModel)]="levelL">
-            <option value="1">Beginner</option>
-            <option value="2">Intermediate</option>
-            <option value="3">Advanced</option>
-        </select>
-        <button class="btn btn-dark" (click)="addIdiomsToLearn()">Add Language</button>
-    </div>
-    <div>
-        <label for="lengu">Languages to teach:</label>
-        <select type="text" id="lengu" class="form-control" (change)="onToTeachChange()" [(ngModel)]="teach">
-            <option *ngFor="let i of idioms" [value]="i">{{ i }}</option>
-        </select>
-        <label for="levelT" *ngIf="lvlT != -1">Knowledge level: </label>
-        <select class="form-control" name="levelT" id="levelT" *ngIf="lvlT != -1" [(ngModel)]="lvlTeach">
-            <option value="1">Beginner</option>
-            <option value="2">Intermediate</option>
-            <option value="3">Advanced</option>
-        </select>
-        <button class="btn btn-dark" (click)="addIdiomsToTeach()">Add Language</button>
-    </div>
-    <div>
-        <label for="hob">Hobbies:</label>
-        <input type="text" id="hob" class="form-control" [(ngModel)]="hobbie">
-        <button class="btn btn-dark" (click)="addHobbie()">Add Hobbie</button>
-    </div>
-    <label for="med">Means to practice: </label>
-    <div>
-        <select name="med" id="med" class="form-control" [(ngModel)]="medium">
-            <option value="skype">Skype</option>
-            <option value="whatsapp">Whatsapp</option>
-            <option value="intercambio"> Exchange page</option>
-            <option value="persona">In person</option>
-        </select>
-        <button class="btn btn-dark" (click)="addMediums()">Add Means</button>
-    </div>
-    <button (click) = "register()" class="btn btn-dark">Register</button>
-    </div>
+        <label for="country">Country</label>
+        <input type="text" id="country" class="form-control" [(ngModel)]="country">
+        <div>
+            <label for="leng"> Languages ​​to learn: </label>
+            <select type="text" id="leng" class="form-control" (change)="onToLearnChange()" [(ngModel)]="learn">
+                <option *ngFor="let i of idioms" [value]="i">{{ i }}</option>
+            </select>
+            <label for="lvl" *ngIf="lvlL != -1">Knowledge level: </label>
+            <select class="form-control" name="lvl" id="lvl" *ngIf="lvlL != -1" [(ngModel)]="levelL">
+                <option value="1">Beginner</option>
+                <option value="2">Intermediate</option>
+                <option value="3">Advanced</option>
+            </select>
+            <button class="btn btn-dark" (click)="addIdiomsToLearn()">Add Language</button>
+        </div>
+        <div>
+            <label for="lengu">Languages to teach:</label>
+            <select type="text" id="lengu" class="form-control" (change)="onToTeachChange()" [(ngModel)]="teach">
+                <option *ngFor="let i of idioms" [value]="i">{{ i }}</option>
+            </select>
+            <label for="levelT" *ngIf="lvlT != -1">Knowledge level: </label>
+            <select class="form-control" name="levelT" id="levelT" *ngIf="lvlT != -1" [(ngModel)]="lvlTeach">
+                <option value="1">Beginner</option>
+                <option value="2">Intermediate</option>
+                <option value="3">Advanced</option>
+            </select>
+            <button class="btn btn-dark" (click)="addIdiomsToTeach()">Add Language</button>
+        </div>
+        <div>
+            <label for="hob">Hobbies:</label>
+            <input type="text" id="hob" class="form-control" [(ngModel)]="hobbie">
+            <button class="btn btn-dark" (click)="addHobbie()">Add Hobbie</button>
+        </div>
+        <label for="med">Means to practice: </label>
+        <div>
+            <select name="med" id="med" class="form-control" [(ngModel)]="medium">
+                <option value="skype">Skype</option>
+                <option value="whatsapp">Whatsapp</option>
+                <option value="intercambio"> Exchange page</option>
+                <option value="persona">In person</option>
+            </select>
+            <button class="btn btn-dark" (click)="addMediums()">Add Means</button>
+        </div>
+        <button (click) = "register()" class="btn btn-dark">Register</button>
+        </div>
+</div>
