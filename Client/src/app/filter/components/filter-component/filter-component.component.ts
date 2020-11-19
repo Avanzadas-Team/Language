@@ -18,6 +18,8 @@ export class FilterComponentComponent implements OnInit {
 
   info = {idiomas: [] };
 
+  users;
+
   ngOnInit(): void {
   }
 
@@ -27,7 +29,8 @@ export class FilterComponentComponent implements OnInit {
 
   filter(){
     this.http.getUsrbyToTeach(this.info).subscribe(r => {
-      console.log("RESPONSE",r)});
+      this.users = r;
+    console.log(this.users)});
   }
 
 }

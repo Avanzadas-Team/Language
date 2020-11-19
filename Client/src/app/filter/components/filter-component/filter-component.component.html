@@ -1,38 +1,39 @@
-<div class="contaniner-xl">
-    <div class="jumbotron jumbotron-fluid rounded" id="jumboAD">
-        <div class="container">
-          <h1 class="display-1">Recomendaciones por género</h1>
-          <p class="h3">Tú decides los criterios de búsqueda</p>
-          <p class="h5">Recibe las mejores recomendaciones para tí</p>
-          <p class="lead"> Y simplemente decide cuál película ver ;)</p>
-          <br>
-          <hr class="my-4">
-          <blockquote class="blockquote text-center">
-            <p class="mb-0">Let’s put a smile on that face!</p>
-            <footer class="blockquote-footer">The Joker, <cite title="Source Title">Batman: The Dark Knight</cite></footer>
-          </blockquote>
-        </div>
-      </div>
-  </div>
+<div class="container-fluid" id="jumboAU">
+  <h1 class="display-1 text-center" id="title">Search your interested users.</h1>
+  <hr class="my-4">
+  <p class="h4 text-center" id="desc">This page allows you search users by differents filters.</p>
+</div>
   
   <div class="container-a" style="margin-left: 0%;">
       <div class="row">
         <div class="col-sm-4">
           <h2 class="ctitle">Filter</h2>
           <label for="">Language to teach: </label>
-          <select name="" id="" class="form-control" [(ngModel)] = "language">
+          <select name="language" id="language" class="form-control" [(ngModel)] = "language">
             <option [value]="l" *ngFor = "let l of languages" >{{ l }}</option>
           </select>
-          <button class="btn btn-dark" (click)="addToTeach()" >Add</button>
+          <div>
+            <button class="btn btn-dark" (click)="addToTeach()" >Add</button>
+          </div>
           <button color="primary" class="btn btn-dark" (click)="filter()">Search</button>
         </div>
         <div class="col-lg-8 col-sm-8" style="margin-right: 0%;">
-          <div class="row" >
-              <img class="col-lg-4" src="" alt="Card image" width="30" height="150">
-              <div class="col-lg-6">
-                  <h5><a [routerLink]="" routerLinkActive="active"></a></h5>
-              </div>
-          </div>
+          <table class="table table-hover text-center" aria-describedby="Registered Users" id="table1">
+            <thead id="th" style="background-color: #e9e9e9;">
+                <tr>
+                    <th id="header">Name</th>
+                    <th id="header">Languages to Learn</th>
+                    <th id="header">Languages to Teach</th>
+                </tr>
+            </thead>
+            <tbody class="scrollable" id="tb" style="background-color: #e9e9e9;">
+                <tr *ngFor="let user of users" >
+                    <td>{{user.nombre}}</td>
+                    <td><label for="idiomstoLearn" *ngFor="let i of user.idiomasApr">{{i.iNombre}}, </label></td>
+                    <td><label for="idiomstoTeach" *ngFor="let l of user.idiomasEns">{{l.iNombre}}, </label></td>
+                </tr>
+            </tbody>
+        </table>
         </div>
       </div>
   </div>
