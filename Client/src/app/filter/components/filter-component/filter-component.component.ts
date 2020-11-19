@@ -26,7 +26,8 @@ export class FilterComponentComponent implements OnInit {
   }
 
   filter(){
-    //this.http
+    this.http.getUsrbyToTeach(this.info).subscribe(r => {
+      console.log("RESPONSE",r)});
   }
 
 }

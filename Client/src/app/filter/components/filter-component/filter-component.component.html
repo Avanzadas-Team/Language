@@ -21,14 +21,14 @@
           <h2 class="ctitle">Filter</h2>
           <label for="">Language to teach: </label>
           <select name="" id="" class="form-control" [(ngModel)] = "language">
-            <option [value]="gen.idGenero" *ngFor = "let l of languages" >{{ l }}</option>
+            <option [value]="l" *ngFor = "let l of languages" >{{ l }}</option>
           </select>
-          <button class="btn btn-dark" (click)="addToTeach()" ></button>
-          <button color="primary" class="btn btn-dark" (click)="filter()">Filtrar</button>
+          <button class="btn btn-dark" (click)="addToTeach()" >Add</button>
+          <button color="primary" class="btn btn-dark" (click)="filter()">Search</button>
         </div>
         <div class="col-lg-8 col-sm-8" style="margin-right: 0%;">
-          <div class="row" *ngFor = "}">
-              <img class="col-lg-4" src="}" alt="Card image" width="30" height="150">
+          <div class="row" >
+              <img class="col-lg-4" src="" alt="Card image" width="30" height="150">
               <div class="col-lg-6">
                   <h5><a [routerLink]="" routerLinkActive="active"></a></h5>
               </div>
