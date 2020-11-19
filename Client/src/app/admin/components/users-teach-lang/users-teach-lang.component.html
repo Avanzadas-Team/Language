@@ -1,0 +1,45 @@
+<div class="container-fluid" id="jumboAU">
+    <h1 class="display-1 text-left" id="title">Languages Catalog.</h1>
+    <hr class="my-4">
+    <p class="h4" id="desc">This page shows the amount of registered users that teaches a specific language and the amount of registered users that wants to learn a specific language.</p>
+</div>
+<div class="container-fluid">
+        <div class="row">
+            <div class="container col rounded" id="div1">
+                <h3 class="h1 text-center" id="title"> Languages Available to Teach</h3>
+                <br>
+                <table class="table table-hover text-center" id="table1" aria-describedby="Users by Country">
+                    <thead id="th" style="background-color: #e9e9e9;">
+                        <tr>
+                            <th id="header">Languages </th>
+                            <th id="header">Amount of Users</th>
+                        </tr>
+                    </thead>
+                    <tbody class="scrollable" id="tb" style="background-color: #e9e9e9;" >
+                        <tr *ngFor="let tl of tLangs$">
+                            <td>{{tl.lang}}</td>
+                            <td>{{tl.amount}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="container col rounded" id="div2">
+                <h3 class="h1 text-center" id="title">Demand of Languages to Learn </h3>
+                <br>
+                <table class="table table-hover text-center" aria-describedby="Users by Country" id="table1">
+                    <thead id="th" style="background-color: #e9e9e9;">
+                        <tr>
+                            <th id="header">Languages </th>
+                            <th id="header">Amount of Users</th>
+                        </tr>
+                    </thead>
+                    <tbody class="scrollable" id="tb" style="background-color: #e9e9e9;">
+                        <tr *ngFor="let ll of lLangs$">
+                            <td>{{ll.lang}}</td>
+                            <td>{{ll.amount}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>

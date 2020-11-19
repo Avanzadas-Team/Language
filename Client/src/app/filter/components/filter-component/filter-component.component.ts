@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from 'src/app/http.service';
 
 @Component({
   selector: 'app-filter-component',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilterComponentComponent implements OnInit {
 
-  constructor() { }
+
+
+  constructor(private http : HttpService) { }
+  
+  language : string;
+
+  languages = ["Spanish", "English", "German", "Italian", "Portuguese", "French", "Japanese", "Mandarin"];
+
+  info = {idiomas: [] };
 
   ngOnInit(): void {
+  }
+
+  addToTeach(){
+    this.info.idiomas.push(this.language);
+  }
+
+  filter(){
+    //this.http
   }
 
 }

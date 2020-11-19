@@ -30,4 +30,14 @@ describe('HttpService', () => {
     expect(users).not.toBe(undefined);
   });
 
+  it('should get all registered users per language to teach (Not a null or undifined JSON obejct)', () => {
+    var users = service.GetUsersPerTLang();
+    expect(users).not.toBe(undefined);
+  });
+
+  it('should get all registered users per language to learn (Not a null or undifined JSON obejct)', () => {
+    var users = service.GetUsersPerLLang();
+    expect(users).not.toBe(undefined);
+  });
+
 });

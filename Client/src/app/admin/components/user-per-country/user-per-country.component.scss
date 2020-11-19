@@ -1,4 +1,39 @@
 #jumboAU {
   margin-top: 0.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 5rem;
+}
+
+#title {
+  font-family: 'EB Garamond', serif;
+  font-size: xx-larger;
+  font-weight: bold;
+  color: #056676;
+}
+
+#desc {
+  font-family: 'Barlow', serif;
+  font-size: x-larger;
+  font-weight: bold;
+  color: #056676;
+}
+
+#table1 {
+  border-radius: 5px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #056676;
+
+  /*Tested and working as expected: */
+}
+
+#th {
+  font-family: 'Quicksand', sans-serif;
+  font-size: larger;
+  color: #056676;
+}
+
+#tb {
+  font-family: 'Barlow', sans-serif;
+  font-size: large;
+  font-weight: bold;
 }

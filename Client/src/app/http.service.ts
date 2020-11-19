@@ -44,4 +44,13 @@ export class HttpService {
     return this.http.get(this.rest1URL + 'upc');
   }
 
+  GetUsersPerTLang() {
+    return this.http.get(this.rest1URL + 'upl/teach');
+  }
+
+  GetUsersPerLLang() {
+    return this.http.get(this.rest1URL + 'upl/learn');
+  }
+
+
 }
