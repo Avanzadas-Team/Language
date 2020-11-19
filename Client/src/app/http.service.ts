@@ -31,13 +31,13 @@ export class HttpService {
 
   //Http Service Methods
   GetUsers() { // gets all user from the DB, returns JSON Objects with all users.
-    return this.http.get(this.rest1URL + 'users'); //Change the restURl # as needed. 
+    return this.http.get(this.rest1URL + 'users/All'); //Change the restURl # as needed. 
     //return this.http.get(this.rest2URL + 'users'); 
     //return this.http.get(this.rest3URL + 'users');
   }
 
   registerUser(user){
-    return this.http.post(this.rest1URL + "createuser",user);
+    return this.http.post(this.devURL + "createuser",user);
   }
 
   GetUsersPerCountry() {

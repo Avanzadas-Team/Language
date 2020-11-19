@@ -10,6 +10,10 @@
 <div style="text-align: center; margin-left: 15%; margin-right: 15%; margin-top: 5%;">
     <label for="name">Name:</label>
     <input type="text" class="form-control" id="name" [(ngModel)]="name">
+    <label for="name">Username:</label>
+    <input type="text" class="form-control" id="name" [(ngModel)]="uname">
+    <label for="name">Password:</label>
+    <input type="password" class="form-control" id="name" [(ngModel)]="pass">
     <label for="age">Age</label>
     <input type="number" id="age" class="form-control" [(ngModel)]="age">
     <label for="sexuality">Sexuality</label>
@@ -20,7 +24,7 @@
     <label for="country">Country</label>
     <input type="text" id="country" class="form-control" [(ngModel)]="country">
     <div>
-        <label for="leng"> Languages ​​to learn: </label>
+        <label for="leng"> Languages ​​to teach: </label>
         <select type="text" id="leng" class="form-control" (change)="onToLearnChange()" [(ngModel)]="learn">
             <option *ngFor="let i of idioms" [value]="i">{{ i }}</option>
         </select>
@@ -33,7 +37,7 @@
         <button class="btn btn-dark" (click)="addIdiomsToLearn()">Add Language</button>
     </div>
     <div>
-        <label for="lengu">Languages to teach:</label>
+        <label for="lengu">Languages to learn:</label>
         <select type="text" id="lengu" class="form-control" (change)="onToTeachChange()" [(ngModel)]="teach">
             <option *ngFor="let i of idioms" [value]="i">{{ i }}</option>
         </select>

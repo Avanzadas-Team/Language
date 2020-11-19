@@ -32,6 +32,12 @@ namespace Server.Models
         [BsonElement("MedioPrac")]
         public List<String> MedioPrac { get; set; }
 
+        [BsonElement("NombreUsuario")]
+        public string NombreUsuario { get; set; }
+
+        [BsonElement("Contrasena")]
+        public string Contrasena { get; set; }
+
         [BsonElement("TipoU")]
         public int TipoU { get; set; }
 

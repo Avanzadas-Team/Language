@@ -1,0 +1,38 @@
+<div class="contaniner-xl">
+    <div class="jumbotron jumbotron-fluid rounded" id="jumboAD">
+        <div class="container">
+          <h1 class="display-1">Recomendaciones por género</h1>
+          <p class="h3">Tú decides los criterios de búsqueda</p>
+          <p class="h5">Recibe las mejores recomendaciones para tí</p>
+          <p class="lead"> Y simplemente decide cuál película ver ;)</p>
+          <br>
+          <hr class="my-4">
+          <blockquote class="blockquote text-center">
+            <p class="mb-0">Let’s put a smile on that face!</p>
+            <footer class="blockquote-footer">The Joker, <cite title="Source Title">Batman: The Dark Knight</cite></footer>
+          </blockquote>
+        </div>
+      </div>
+  </div>
+  
+  <div class="container-a" style="margin-left: 0%;">
+      <div class="row">
+        <div class="col-sm-4">
+          <h2 class="ctitle">Filtros</h2>
+          <label for="">Idioma: </label>
+          <select name="" id="" class="form-control" [(ngModel)] = "language">
+            <option [value]="gen.idGenero" *ngFor = "let l of languages" >{{ l }}</option>
+          </select>
+          <button color="primary" class="btn btn-dark" (click)="filter()">Filtrar</button>
+        </div>
+        <div class="col-lg-8 col-sm-8" style="margin-right: 0%;">
+          <div class="row" *ngFor = "}">
+              <img class="col-lg-4" src="}" alt="Card image" width="30" height="150">
+              <div class="col-lg-6">
+                  <h5><a [routerLink]="" routerLinkActive="active"></a></h5>
+              </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  
