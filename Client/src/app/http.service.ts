@@ -53,7 +53,7 @@ export class HttpService {
   }
 
   getUsrbyToTeach(json){
-    return this.http.post(this.devURL + 'filter/one',json);
+    return this.http.post(this.rest1URL + 'filter/one',json);
   }
 
 }
