@@ -1,10 +1,8 @@
 ﻿using Server.Models;
 using Server.PresentationModel;
 using Server.Services;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Server.Logic
 {
@@ -13,7 +11,7 @@ namespace Server.Logic
         public List<UserFilter> filterUsertoTeach(UserContext _context, Idiomas idiomas)
         {
             List<UserFilter> users = new List<UserFilter>();
-            int len = idiomas.idiomas.Count();
+            int len = idiomas.idiomas.Count;
 
             foreach(Usuario u in _context.Get())
             {
