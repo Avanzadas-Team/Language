@@ -26,5 +26,12 @@ namespace Server.Controllers
 
             return result;
         }
+
+        [HttpPost("two")]
+        public List<UserFilter> filterTwo(SecondFilter filter)
+        {
+            var result = _fl.secondFilter(_userService, filter);
+            return result;
+        }
     }
 }
