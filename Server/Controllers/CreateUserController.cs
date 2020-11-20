@@ -27,6 +27,8 @@ namespace Server.Controllers
             u.Sexo = user.Sexo;
             u.Hobbies = user.Hobbies;
             u.Edad = user.Edad;
+            u.Contrasena = user.Contrasena;
+            u.NombreUsuario = user.NombreUsuario;
             u.TipoU = 2;
             u.IdiomasEns = user.IdiomasEns;
             

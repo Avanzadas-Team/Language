@@ -26,13 +26,17 @@ export class RegisterModuleComponent implements OnInit {
 
   country : string;
 
+  uname : string;
+
+  pass : string;
+
   response;
 
   user = { nombre: "",
     edad: 0, porigen: "",
     sexo: "", idiomasens: [{inombre: "", nivelc: 0}],
     idiomasapr: [{inombre: "", nivelc: 0}], medioprac: [],
-    hobbies: [], TipoU: 2 };
+    hobbies: [], TipoU: 2 , nombreusuario: "", Contrasena: ""};
 
   teach : string;
 
@@ -88,6 +92,8 @@ export class RegisterModuleComponent implements OnInit {
   register(){
     this.user.nombre = this.name;
     this.user.edad = this.age;
+    this.user.Contrasena = this.pass;
+    this.user.nombreusuario = this.uname;
     this.user.porigen = this.country;
     this.user.sexo = this.sexuality;
     this.user.idiomasapr.shift();

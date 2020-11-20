@@ -1,3 +1,4 @@
+import { FilterModule } from './filter/filter.module';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpService } from './http.service';
@@ -21,6 +22,7 @@ import { RegisterModule } from './register/register.module';
     CoreModule,
     AdminModule,
     RegisterModule,
+    FilterModule
   ],
   providers: [
     HttpService

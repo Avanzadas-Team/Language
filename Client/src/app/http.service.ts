@@ -36,8 +36,8 @@ export class HttpService {
     //return this.http.get(this.rest3URL + 'users');
   }
 
-  registerUser(user) {
-    return this.http.post(this.rest1URL + "createuser", user);
+  registerUser(user){
+    return this.http.post(this.rest1URL + "createuser",user);
   }
 
   GetUsersPerCountry() {
@@ -52,5 +52,8 @@ export class HttpService {
     return this.http.get(this.rest1URL + 'upl/learn');
   }
 
+  getUsrbyToTeach(json){
+    return this.http.post(this.rest1URL + 'filter/one',json);
+  }
 
 }
