@@ -61,7 +61,7 @@ export class HttpService {
   }
 
   getThirdFilter(json){
-    return this.http.post(this.devURL + 'filter/three', json);
+    return this.http.post(this.rest1URL + 'filter/three', json);
   }
 
 }
