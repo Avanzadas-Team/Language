@@ -18,7 +18,14 @@ export class FilterComponentComponent implements OnInit {
 
   info = {idiomas: [] };
 
+  
+  info2 = {idiomasens: [], idiomasapr: []};
+
   users;
+
+  seconF : number;
+
+  languageL : string;
 
   ngOnInit(): void {
   }
@@ -28,9 +35,26 @@ export class FilterComponentComponent implements OnInit {
   }
 
   filter(){
-    this.http.getUsrbyToTeach(this.info).subscribe(r => {
-      this.users = r;
-    console.log(this.users)});
+    if(this.seconF == 1){
+      this.info2.idiomasens = this.info.idiomas;
+      console.log("INFO: ", this.info2);
+      this.http.getSecondFilter(this.info2).subscribe(r => {
+        this.users = r;
+        console.log(this.users);
+      });
+    }else{
+      this.http.getUsrbyToTeach(this.info).subscribe(r => {
+        this.users = r;
+      console.log(this.users)});
+    }
   }
 
+  addToLearn(){
+    this.info2.idiomasapr.push(this.languageL);
+  }
+
+  clean(){
+    this.info = {idiomas: [] };
+    this.info2 = {idiomasens: [], idiomasapr: []};
+  }
 }

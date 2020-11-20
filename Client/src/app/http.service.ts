@@ -56,4 +56,8 @@ export class HttpService {
     return this.http.post(this.rest1URL + 'filter/one',json);
   }
 
+  getSecondFilter(json){
+    return this.http.post(this.devURL + 'filter/two',json);
+  }
+
 }
