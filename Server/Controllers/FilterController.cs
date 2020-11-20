@@ -40,5 +40,12 @@ namespace Server.Controllers
             var result = _fl.thirdFilter(_userService, filter);
             return result;
         }
+
+        [HttpPost("fourth")]
+        public List<UserFilter> filterFour(Idiomas filter)
+        {
+            var result = _fl.fourthFilter(_userService, filter);
+            return result;
+        }
     }
 }

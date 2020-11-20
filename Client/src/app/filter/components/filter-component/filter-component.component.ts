@@ -32,7 +32,13 @@ export class FilterComponentComponent implements OnInit {
 
   active4 : number = -1;
 
+  fourthF : number;
+
   country = "";
+
+  Iage : number;
+
+  Fage: number;
 
   ngOnInit(): void {
   }
@@ -43,7 +49,16 @@ export class FilterComponentComponent implements OnInit {
   }
 
   filter(){
-    if(this.thirdF == 1){
+    if(this.fourthF == 1){
+      this.info2.edadP = this.Iage;
+      this.info2.edadF = this.Fage;
+      console.log("INFO: ", this.info2);
+      this.http.getFourthFilter(this.info2).subscribe(r => {
+        this.users = r;
+        console.log(this.users);
+      });
+    }
+    else if(this.thirdF == 1){
       console.log("INFO: ", this.info2);
       this.http.getThirdFilter(this.info2).subscribe(r => {
         this.users = r;
