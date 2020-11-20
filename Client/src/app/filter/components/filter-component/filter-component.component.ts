@@ -43,7 +43,7 @@ export class FilterComponentComponent implements OnInit {
   }
 
   filter(){
-    if(this.seconF == 1){
+    if(this.thirdF == 1){
       console.log("INFO: ", this.info2);
       this.http.getThirdFilter(this.info2).subscribe(r => {
         this.users = r;
@@ -75,6 +75,10 @@ export class FilterComponentComponent implements OnInit {
   }
 
   clean(){
+    this.active2 = -1;
+    this.active3 = -1;
+    this.seconF = -1;
+    this.thirdF = -1;
     this.info2 = {idiomasens: [], idiomasapr: [], porigen : "", edadP: 0, edadF: 100};
   }
 }

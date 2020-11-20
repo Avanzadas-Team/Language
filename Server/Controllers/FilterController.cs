@@ -28,9 +28,16 @@ namespace Server.Controllers
         }
 
         [HttpPost("two")]
-        public List<UserFilter> filterTwo(SecondFilter filter)
+        public List<UserFilter> filterTwo(Idiomas filter)
         {
             var result = _fl.secondFilter(_userService, filter);
+            return result;
+        }
+
+        [HttpPost("three")]
+        public List<UserFilter> filterThree(Idiomas filter)
+        {
+            var result = _fl.thirdFilter(_userService, filter);
             return result;
         }
     }
