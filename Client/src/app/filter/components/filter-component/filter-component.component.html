@@ -15,7 +15,7 @@
           <div>
             <button class="btn btn-dark" (click)="addToTeach()" >Add</button>
           </div>
-          <div class="checkbox">
+          <div class="checkbox" *ngIf="active2 == 1">
             <input type="checkbox" value="-1" [(ngModel)]="seconF"> 
             <label for="sfilter"> Filter by languages to learn? </label>
           </div>
@@ -25,6 +25,15 @@
               <option [value]="l" *ngFor = "let l of languages" >{{ l }}</option>
             </select>
             <button class="btn btn-dark" (click)="addToLearn()">Add</button>
+          </div>
+          <div class="checkbox" *ngIf="active3 == 1">
+            <input type="checkbox" value="-1" [(ngModel)]="thirdF"> 
+            <label for="sfilter"> Filter by languages to learn? </label>
+          </div>
+          <div *ngIf="thirdF == 1">
+            <label for="">Country: </label>
+            <input type="text" [(ngModel)]="country" class="form-control" required>
+            <button class="btn btn-dark" (click)="addCountry()">Add</button>
           </div>
           <button class="btn btn-dark" (click)="clean()">Clean</button>
           <button color="primary" class="btn btn-dark" (click)="filter()">Search</button>

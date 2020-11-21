@@ -16,34 +16,48 @@ export class FilterComponentComponent implements OnInit {
 
   languages = ["Spanish", "English", "German", "Italian", "Portuguese", "French", "Japanese", "Mandarin"];
 
-  info = {idiomas: [] };
-
-  
-  info2 = {idiomasens: [], idiomasapr: []};
+  info2 = {idiomasens: [], idiomasapr: [], porigen : "", edadP: 0, edadF: 100};
 
   users;
 
   seconF : number;
 
+  thirdF : number;
+
   languageL : string;
+
+  active2 : number = -1;
+
+  active3 : number = -1;
+
+  active4 : number = -1;
+
+  country = "";
 
   ngOnInit(): void {
   }
 
   addToTeach(){
-    this.info.idiomas.push(this.language);
+    this.info2.idiomasens.push(this.language);
+    this.active2 = 1;
   }
 
   filter(){
-    if(this.seconF == 1){
-      this.info2.idiomasens = this.info.idiomas;
+    if(this.thirdF == 1){
+      console.log("INFO: ", this.info2);
+      this.http.getThirdFilter(this.info2).subscribe(r => {
+        this.users = r;
+        console.log(this.users);
+      });
+    }
+    else if(this.seconF == 1){
       console.log("INFO: ", this.info2);
       this.http.getSecondFilter(this.info2).subscribe(r => {
         this.users = r;
         console.log(this.users);
       });
     }else{
-      this.http.getUsrbyToTeach(this.info).subscribe(r => {
+      this.http.getUsrbyToTeach(this.info2).subscribe(r => {
         this.users = r;
       console.log(this.users)});
     }
@@ -51,10 +65,20 @@ export class FilterComponentComponent implements OnInit {
 
   addToLearn(){
     this.info2.idiomasapr.push(this.languageL);
+    this.active3 = 1;
+  }
+
+  addCountry(){
+    this.info2.porigen = this.country;
+    this.active4 = 1;
+    console.log("Info",this.info2);
   }
 
   clean(){
-    this.info = {idiomas: [] };
-    this.info2 = {idiomasens: [], idiomasapr: []};
+    this.active2 = -1;
+    this.active3 = -1;
+    this.seconF = -1;
+    this.thirdF = -1;
+    this.info2 = {idiomasens: [], idiomasapr: [], porigen : "", edadP: 0, edadF: 100};
   }
 }

@@ -10,7 +10,7 @@ namespace Server.Logic
         public List<UserFilter> filterUsertoTeach(UserContext _context, Idiomas idiomas)
         {
             List<UserFilter> users = new List<UserFilter>();
-            int len = idiomas.idiomas.Count;
+            int len = idiomas.idiomasens.Count;
 
             foreach(Usuario u in _context.Get())
             {
@@ -18,12 +18,14 @@ namespace Server.Logic
                 {
                     for(int x = 0; x < len; x++)
                     {
-                        if (i.INombre == idiomas.idiomas[0])
+                        if (i.INombre == idiomas.idiomasens[0])
                         {
                             UserFilter user = new UserFilter();
                             user.Nombre = u.Nombre;
                             user.IdiomasApr = u.IdiomasApr;
                             user.IdiomasEns = u.IdiomasEns;
+                            user.edad = u.Edad;
+                            user.porigen = u.POrigen;
                             users.Add(user);
                             break;
                         }
@@ -34,12 +36,10 @@ namespace Server.Logic
             return users;
         }
 
-        public List<UserFilter> secondFilter(UserContext _context, SecondFilter info)
+        public List<UserFilter> secondFilter(UserContext _context, Idiomas info)
         {
             List<UserFilter> users = new List<UserFilter>();
-            Idiomas idiomas = new Idiomas();
-            idiomas.idiomas = info.idiomasEns;
-            var firstFilter = filterUsertoTeach(_context, idiomas);
+            var firstFilter = filterUsertoTeach(_context, info);
             int len = info.idiomasApr.Count;
             foreach (UserFilter u in firstFilter)
             {
@@ -58,6 +58,22 @@ namespace Server.Logic
                         }
                     }
                     
+                }
+            }
+
+
+            return users;
+        }
+
+        public List<UserFilter> thirdFilter(UserContext _context, Idiomas filter)
+        {
+            List<UserFilter> users = new List<UserFilter>();
+            var filter2 = secondFilter(_context, filter);
+            foreach(UserFilter u in filter2)
+            {
+                if(u.porigen == filter.pOrigen)
+                {
+                    users.Add(u);
                 }
             }
 
