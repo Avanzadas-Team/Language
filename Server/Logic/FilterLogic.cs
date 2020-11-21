@@ -69,9 +69,9 @@ namespace Server.Logic
         {
             List<UserFilter> users = new List<UserFilter>();
             var filter2 = secondFilter(_context, filter);
-            foreach(UserFilter u in filter2)
+            foreach (UserFilter u in filter2)
             {
-                if(u.porigen == filter.pOrigen)
+                if (u.porigen == filter.pOrigen)
                 {
                     users.Add(u);
                 }
@@ -80,5 +80,23 @@ namespace Server.Logic
 
             return users;
         }
+
+        public List<UserFilter> fourthFilter(UserContext _context, Idiomas filter)
+        {
+            List<UserFilter> users = new List<UserFilter>();
+            var filter2 = thirdFilter(_context, filter);
+            foreach (UserFilter u in filter2)
+            {
+                if (u.edad >= filter.edadP && u.edad <= filter.edadF)
+                {
+                    users.Add(u);
+                }
+            }
+
+
+            return users;
+        }
+
+
     }
 }

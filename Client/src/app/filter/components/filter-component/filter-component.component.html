@@ -17,7 +17,7 @@
           </div>
           <div class="checkbox" *ngIf="active2 == 1">
             <input type="checkbox" value="-1" [(ngModel)]="seconF"> 
-            <label for="sfilter"> Filter by languages to learn? </label>
+            <label for="sfilter"> Filter per languages to learn? </label>
           </div>
           <div *ngIf="seconF == 1">
             <label for="">Language to learn: </label>
@@ -28,12 +28,22 @@
           </div>
           <div class="checkbox" *ngIf="active3 == 1">
             <input type="checkbox" value="-1" [(ngModel)]="thirdF"> 
-            <label for="sfilter"> Filter by languages to learn? </label>
+            <label for="sfilter"> Filter per country? </label>
           </div>
           <div *ngIf="thirdF == 1">
-            <label for="">Country: </label>
+            <label for="country">Country: </label>
             <input type="text" [(ngModel)]="country" class="form-control" required>
             <button class="btn btn-dark" (click)="addCountry()">Add</button>
+          </div>
+          <div class="checkbox" *ngIf="active4 == 1">
+            <input type="checkbox" value="-1" [(ngModel)]="fourthF"> 
+            <label for="sfilter"> Filter per age? </label>
+          </div>
+          <div *ngIf="fourthF == 1">
+            <label for="iage">Initial Age: </label>
+            <input type="number" [(ngModel)]="Iage" class="form-control" required>
+            <label for="fage">Final Age: </label>
+            <input type="number" [(ngModel)]="Fage" class="form-control" required>
           </div>
           <button class="btn btn-dark" (click)="clean()">Clean</button>
           <button color="primary" class="btn btn-dark" (click)="filter()">Search</button>

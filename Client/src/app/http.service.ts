@@ -64,4 +64,8 @@ export class HttpService {
     return this.http.post(this.rest1URL + 'filter/three', json);
   }
 
+  getFourthFilter(json){
+    return this.http.post(this.rest1URL + 'filter/fourth', json);
+  }
+
 }
