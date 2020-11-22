@@ -8,19 +8,19 @@
   
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-2">
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="tipoU == '1'">
         <a class="nav-link" [routerLink]="['Admin/Users']" routerLinkActive="active">Users Stats</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="tipoU == '1'">
         <a class="nav-link" [routerLink]="['Admin/Country']" routerLinkActive="active">Country Stats</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="tipoU == '1'">
         <a class="nav-link" [routerLink]="['Admin/Languages']" routerLinkActive="active">Languages Stats</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="tipoU == '0'">
         <a class="nav-link" [routerLink]="['register']" routerLinkActive="active">Register</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="tipoU == '2'">
         <a class="nav-link" [routerLink]="['filter']" routerLinkActive="active">Filter</a>
       </li>
       </ul>

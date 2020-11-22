@@ -9,7 +9,10 @@ export class NavMenuComponent implements OnInit {
 
   constructor() { }
 
+  tipoU = localStorage.getItem("tipoU");
+
   ngOnInit(): void {
+    console.log(this.tipoU)
   }
 
 }

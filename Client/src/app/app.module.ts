@@ -1,3 +1,4 @@
+import { LoginModule } from './login/login.module';
 import { FilterModule } from './filter/filter.module';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
@@ -22,7 +23,8 @@ import { RegisterModule } from './register/register.module';
     CoreModule,
     AdminModule,
     RegisterModule,
-    FilterModule
+    FilterModule,
+    LoginModule
   ],
   providers: [
     HttpService

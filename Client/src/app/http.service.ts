@@ -52,20 +52,24 @@ export class HttpService {
     return this.http.get(this.rest1URL + 'upl/learn');
   }
 
+  login(info){
+    return this.http.post(this.devURL + 'login', info);
+  }
+
   getUsrbyToTeach(json){
-    return this.http.post(this.rest1URL + 'filter/one',json);
+    return this.http.post(this.rest2URL + 'filter/one',json);
   }
 
   getSecondFilter(json){
-    return this.http.post(this.rest1URL + 'filter/two',json);
+    return this.http.post(this.rest2URL + 'filter/two',json);
   }
 
   getThirdFilter(json){
-    return this.http.post(this.rest1URL + 'filter/three', json);
+    return this.http.post(this.rest2URL + 'filter/three', json);
   }
 
   getFourthFilter(json){
-    return this.http.post(this.rest1URL + 'filter/fourth', json);
+    return this.http.post(this.rest2URL + 'filter/fourth', json);
   }
 
 }
