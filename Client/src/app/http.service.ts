@@ -44,7 +44,7 @@ export class HttpService {
 
     }
     else {
-      this.actualRest == '1'
+      this.actualRest = '1'
       this.restURL = "https://languagesrest" + this.actualRest + "proy2.azurewebsites.net/";
     }
   }
