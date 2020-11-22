@@ -36,5 +36,24 @@ namespace Server.Controllers
             var result = _al.GetAllUsers(_userService);
             return result;
         }
+
+        [HttpPost("username")]
+        public Usuario GetUserbyUserName(Usuario user)
+        {
+
+            var users = this._userService.Get(user.Id);
+
+            return users;
+        }
+
+        [HttpPost("update")]
+        public Usuario UpdatebyUserName(Usuario user)
+        {
+            var us = _userService.GetUserName(user.NombreUsuario);
+            us.MedioPrac = user.MedioPrac;
+            us.Hobbies = user.Hobbies;
+            _userService.Update(us.Id, us);
+            return user;
+        }
     }
 }

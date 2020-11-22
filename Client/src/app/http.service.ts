@@ -9,7 +9,7 @@ export class HttpService {
 
   /*If a module needs to implement the http service import the HttpClient module
       import { HttpClientModule } from '@angular/common/http';
-    into your module .module.ts imports section under @NgModule 
+    into your module .module.ts imports section under @NgModule
 
     Then add the http service using dependency injection by adding it into your component .ts constructor
       constructor(private http: HttpService) { }
@@ -22,7 +22,7 @@ export class HttpService {
   constructor(private http: HttpClient) { }
 
   //Http Service URLs
-  private devURL: string = "https://localhost:44304/"; //This URL is used for development and testing only. When running test with the devURL make sure the local server is running.
+  private devURL: string = "https://localhost:5001/"; //This URL is used for development and testing only. When running test with the devURL make sure the local server is running.
   private rest1URL: string = "https://languagesrest1proy2.azurewebsites.net/";
   private actualRest: string = '1';
   private restURL: string = "https://languagesrest" + this.actualRest + "proy2.azurewebsites.net/";
@@ -33,7 +33,7 @@ export class HttpService {
 
   //Http Service Methods
 
-  NextURL() { //This function selects and active REST Service 
+  NextURL() { //This function selects and active REST Service
     if (this.actualRest == '1') {
       this.actualRest = '2';
       this.restURL = "https://languagesrest" + this.actualRest + "proy2.azurewebsites.net/";
@@ -105,6 +105,34 @@ export class HttpService {
     )
   }
 
+  GetUsersbyUsername(json){
+    return this.http.post(this.restURL + 'users/username', json).pipe(
+      catchError((err) => {
+        console.log('error caught in service...')
+        if (err) {
+          console.error('Attempting connection with another node...');
+          this.NextURL();
+          var retry = this.getUsrbyToTeach(json);
+          return retry
+        }
+      })
+    )
+  }
+
+  PostUserUpdate(json){
+    return this.http.post(this.restURL + 'users/update', json).pipe(
+      catchError((err) => {
+        console.log('error caught in service...')
+        if (err) {
+          console.error('Attempting connection with another node...');
+          this.NextURL();
+          var retry = this.getUsrbyToTeach(json);
+          return retry
+        }
+      })
+    )
+  }
+
   GetUsersPerLLang() {
     return this.http.get(this.restURL + 'upl/learn').pipe(
       catchError((err) => {
@@ -146,7 +174,7 @@ export class HttpService {
   }
 
   login(info){
-    return this.http.post(this.devURL + 'login', info).pipe(
+    return this.http.post(this.restURL + 'login', info).pipe(
       catchError((err) => {
         console.log('error caught in service...');
         if(err){

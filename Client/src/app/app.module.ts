@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { AdminModule } from './admin/admin.module';
 import { CoreModule } from './core/core.module';
 import { RegisterModule } from './register/register.module';
+import { UserProfileModule } from 'src/user-profile/user-profile.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { RegisterModule } from './register/register.module';
     AdminModule,
     RegisterModule,
     FilterModule,
+    UserProfileModule,
     LoginModule
   ],
   providers: [
