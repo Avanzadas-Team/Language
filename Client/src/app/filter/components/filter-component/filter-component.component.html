@@ -22,7 +22,7 @@
           <div *ngIf="seconF == 1">
             <label for="">Language to learn: </label>
             <select name="language" id="language" class="form-control" [(ngModel)] = "languageL">
-              <option [value]="l" *ngFor = "let l of languages" >{{ l }}</option>
+              <option [value]="l" *ngFor = "let l of languages2" >{{ l }}</option>
             </select>
             <button class="btn btn-dark" (click)="addToLearn()">Add</button>
           </div>

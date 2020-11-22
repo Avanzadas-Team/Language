@@ -12,7 +12,13 @@ export class NavMenuComponent implements OnInit {
   tipoU = localStorage.getItem("tipoU");
 
   ngOnInit(): void {
-    console.log(this.tipoU)
+  }
+
+  logout(){
+    location.reload();
+    localStorage.setItem("tipoU","0");
+    localStorage.setItem("id","");
+    location.href.link("http://localhost:4200/login");
   }
 
 }

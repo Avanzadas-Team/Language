@@ -52,6 +52,13 @@ export class HttpService {
     return this.http.get(this.rest1URL + 'upl/learn');
   }
 
+  getLanguagesEnsByUser(id){
+    return this.http.get(this.devURL + "filter/languagesens/" + id);
+  }
+  getLanguagesAprByUser(id){
+    return this.http.get(this.devURL + "filter/languagesapr/" + id);
+  }
+
   login(info){
     return this.http.post(this.devURL + 'login', info);
   }

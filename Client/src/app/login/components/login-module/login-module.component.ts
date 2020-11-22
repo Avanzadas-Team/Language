@@ -26,14 +26,11 @@ export class LoginModuleComponent implements OnInit {
   login(){
     this.http.login({nombreU: this.username, contrasena: this.password}).subscribe(r => {
       this.info = r;
-      console.log("Response:", r);
       if(this.info.tipoU != 0){
-        console.log("Entra");
         localStorage.setItem("tipoU",this.info.tipoU);
         localStorage.setItem("id", this.info.id);
         this.tipoU = localStorage.getItem("tipoU");
         location.reload();
-        console.log(localStorage.getItem("tipoU"));
       }
     });
     
