@@ -1,7 +1,65 @@
+#jumboAU {
+  margin-top: 0.5rem;
+  margin-bottom: 5rem;
+}
+
+#title {
+  font-family: 'EB Garamond', serif;
+  font-size: xx-larger;
+  font-weight: bold;
+  color: #056676;
+}
+
+#desc {
+  font-family: 'Barlow', serif;
+  font-size: 160%;
+  font-weight: bold;
+  color: #056676;
+}
+
+#filter-selector {
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+#f-title {
+  font-family: 'EB Garamond', serif;
+  font-size: 300%;
+  font-weight: bold;
+  color: #056676;
+}
+
+#f-bd {
+  font-family: 'Barlow', serif;
+  font-size: 170%;
+  font-weight: bold;
+  color: #fcfcfc;
+}
+
+#table1 {
+  border-radius: 5px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #056676;
+}
+
+#th {
+  font-family: 'Quicksand', sans-serif;
+  font-size: larger;
+  color: #056676;
+}
+
+#tb {
+  font-family: 'Barlow', sans-serif;
+  font-size: large;
+  font-weight: bold;
+}
+
 button {
-    margin-top: 2%;
-    background-color: #a3d2ca;
-    font-family: 'Barlow', sans-serif;
-    font-size: large;
-    font-weight: bold;
-  }
+  margin-top: 2%;
+  margin-right: 2%;
+  background-color: #056676;
+  font-family: 'Barlow', sans-serif;
+  font-size: large;
+  font-weight: bold;
+}
