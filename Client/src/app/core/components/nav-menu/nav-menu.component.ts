@@ -18,7 +18,6 @@ export class NavMenuComponent implements OnInit {
     location.reload();
     localStorage.setItem("tipoU","0");
     localStorage.setItem("id","");
-    location.href.link("http://localhost:4200/login");
   }
 
 }
