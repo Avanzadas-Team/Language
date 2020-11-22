@@ -23,9 +23,9 @@ export class HttpService {
 
   //Http Service URLs
   private devURL: string = "https://localhost:5001/"; //This URL is used for development and testing only. When running test with the devURL make sure the local server is running.
-  private rest1URL: string = "https://languagesrest1proy2.azurewebsites.net/";
   private actualRest: string = '1';
   private restURL: string = "https://languagesrest" + this.actualRest + "proy2.azurewebsites.net/";
+  private attempts: number = 0;
 
 
   //Http Service Variables
@@ -49,6 +49,16 @@ export class HttpService {
     }
   }
 
+  GetAttemptNo() {
+    if (this.attempts <= 4) {
+      return true;
+    }
+    else {
+      this.attempts = 0;
+      return false
+    }
+  }
+
   GetUsers() { // gets all user from the DB, returns JSON Objects with all users.
     return this.http.get(this.restURL + 'users/All').pipe(
       catchError((err) => {
@@ -56,22 +66,36 @@ export class HttpService {
         if (err) {
           console.error('Attempting connection with another node...');
           this.NextURL();
-          var retry = this.GetUsers();
-          return retry
+          if (this.GetAttemptNo()) {
+            var retry = this.GetUsers();
+            this.attempts++;
+            return retry
+          }
+          else {
+            console.log('Could not establish connection to server');
+            console.log(err);
+          }
         }
       })
     )
   }
 
   registerUser(user) {
-    return this.http.post(this.rest1URL + "createuser", user).pipe(
+    return this.http.post(this.restURL + "createuser", user).pipe(
       catchError((err) => {
         console.log('error caught in service...')
         if (err) {
           console.error('Attempting connection with another node...');
           this.NextURL();
-          var retry = this.registerUser(user);
-          return retry
+          if (this.GetAttemptNo()) {
+            var retry = this.registerUser(user);
+            this.attempts++;
+            return retry
+          }
+          else {
+            console.log('Could not establish connection to server');
+            console.log(err);
+          }
         }
       })
     )
@@ -84,8 +108,15 @@ export class HttpService {
         if (err) {
           console.error('Attempting connection with another node...');
           this.NextURL();
-          var retry = this.GetUsersPerCountry();
-          return retry
+          if (this.GetAttemptNo()) {
+            var retry = this.GetUsersPerCountry();
+            this.attempts++;
+            return retry
+          }
+          else {
+            console.log('Could not establish connection to server');
+            console.log(err);
+          }
         }
       })
     )
@@ -98,36 +129,57 @@ export class HttpService {
         if (err) {
           console.error('Attempting connection with another node...');
           this.NextURL();
-          var retry = this.GetUsersPerTLang();
-          return retry
+          if (this.GetAttemptNo()) {
+            var retry = this.GetUsersPerTLang();
+            this.attempts++;
+            return retry
+          }
+          else {
+            console.log('Could not establish connection to server');
+            console.log(err);
+          }
         }
       })
     )
   }
 
-  GetUsersbyUsername(json){
+  GetUsersbyUsername(json) {
     return this.http.post(this.restURL + 'users/username', json).pipe(
       catchError((err) => {
         console.log('error caught in service...')
         if (err) {
           console.error('Attempting connection with another node...');
           this.NextURL();
-          var retry = this.getUsrbyToTeach(json);
-          return retry
+          if (this.GetAttemptNo()) {
+            var retry = this.GetUsersbyUsername(json);
+            this.attempts++;
+            return retry
+          }
+          else {
+            console.log('Could not establish connection to server');
+            console.log(err);
+          }
         }
       })
     )
   }
 
-  PostUserUpdate(json){
+  PostUserUpdate(json) {
     return this.http.post(this.restURL + 'users/update', json).pipe(
       catchError((err) => {
         console.log('error caught in service...')
         if (err) {
           console.error('Attempting connection with another node...');
           this.NextURL();
-          var retry = this.getUsrbyToTeach(json);
-          return retry
+          if (this.GetAttemptNo()) {
+            var retry = this.PostUserUpdate(json);
+            this.attempts++;
+            return retry
+          }
+          else {
+            console.log('Could not establish connection to server');
+            console.log(err);
+          }
         }
       })
     )
@@ -140,103 +192,159 @@ export class HttpService {
         if (err) {
           console.error('Attempting connection with another node...');
           this.NextURL();
-          var retry = this.GetUsersPerLLang();
-          return retry
+          if (this.GetAttemptNo()) {
+            var retry = this.GetUsersPerLLang();
+            this.attempts++;
+            return retry
+          }
+          else {
+            console.log('Could not establish connection to server');
+            console.log(err);
+          }
         }
       })
     )
   }
-  getLanguagesEnsByUser(id){
+  getLanguagesEnsByUser(id) {
     return this.http.get(this.restURL + "filter/languagesens/" + id).pipe(
       catchError((err) => {
         console.log('error caught in service...');
-        if(err){
+        if (err) {
           console.error('Attempting connection with another node...');
           this.NextURL();
-          var retry = this.getLanguagesEnsByUser(id);
-          return retry
+          if (this.GetAttemptNo()) {
+            var retry = this.getLanguagesEnsByUser(id);
+            this.attempts++;
+            return retry
+          }
+          else {
+            console.log('Could not establish connection to server');
+            console.log(err);
+          }
         }
       })
     );
   }
-  getLanguagesAprByUser(id){
-    return this.http.get(this.devURL + "filter/languagesapr/" + id).pipe(
+  getLanguagesAprByUser(id) {
+    return this.http.get(this.restURL + "filter/languagesapr/" + id).pipe(
       catchError((err) => {
         console.log('error caught in service...');
-        if(err){
+        if (err) {
           console.error('Attempting connection with another node...');
           this.NextURL();
-          var retry = this.getLanguagesAprByUser(id);
-          return retry
+          if (this.GetAttemptNo()) {
+            var retry = this.getLanguagesAprByUser(id);
+            this.attempts++;
+            return retry
+          }
+          else {
+            console.log('Could not establish connection to server');
+            console.log(err);
+          }
         }
       })
     );
   }
 
-  login(info){
+  login(info) {
     return this.http.post(this.restURL + 'login', info).pipe(
       catchError((err) => {
         console.log('error caught in service...');
-        if(err){
+        if (err) {
           console.error('Attempting connection with another node...');
           this.NextURL();
-          var retry = this.login(info);
-          return retry
+          if (this.GetAttemptNo()) {
+            var retry = this.login(info);
+            this.attempts++;
+            return retry
+          }
+          else {
+            console.log('Could not establish connection to server');
+            console.log(err);
+          }
         }
       })
     );
   }
   getUsrbyToTeach(json) {
-    return this.http.post(this.rest1URL + 'filter/one', json).pipe(
+    return this.http.post(this.restURL + 'filter/one', json).pipe(
       catchError((err) => {
         console.log('error caught in service...')
         if (err) {
           console.error('Attempting connection with another node...');
           this.NextURL();
-          var retry = this.getUsrbyToTeach(json);
-          return retry
+          if (this.GetAttemptNo()) {
+            var retry = this.getUsrbyToTeach(json);
+            this.attempts++;
+            return retry
+          }
+          else {
+            console.log('Could not establish connection to server');
+            console.log(err);
+          }
         }
       })
     )
   }
 
   getSecondFilter(json) {
-    return this.http.post(this.rest1URL + 'filter/two', json).pipe(
+    return this.http.post(this.restURL + 'filter/two', json).pipe(
       catchError((err) => {
         console.log('error caught in service...')
         if (err) {
           console.error('Attempting connection with another node...');
           this.NextURL();
-          var retry = this.getSecondFilter(json);
-          return retry
+          if (this.GetAttemptNo()) {
+            var retry = this.getSecondFilter(json);
+            this.attempts++;
+            return retry
+          }
+          else {
+            console.log('Could not establish connection to server');
+            console.log(err);
+          }
         }
       })
     )
   }
 
   getThirdFilter(json) {
-    return this.http.post(this.rest1URL + 'filter/three', json).pipe(
+    return this.http.post(this.restURL + 'filter/three', json).pipe(
       catchError((err) => {
         console.log('error caught in service...')
         if (err) {
           console.error('Attempting connection with another node...');
           this.NextURL();
-          var retry = this.getThirdFilter(json);
-          return retry
+          if (this.GetAttemptNo()) {
+            var retry = this.getThirdFilter(json);
+            this.attempts++;
+            return retry
+          }
+          else {
+            console.log('Could not establish connection to server');
+            console.log(err);
+          }
         }
       })
     )
   }
 
   getFourthFilter(json) {
-    return this.http.post(this.rest1URL + 'filter/fourth', json).pipe(
+    return this.http.post(this.restURL + 'filter/fourth', json).pipe(
       catchError((err) => {
         console.log('error caught in service...')
         if (err) {
           console.error('Attempting connection with another node...');
           this.NextURL();
-          var retry = this.getFourthFilter(json);
-          return retry
+          if (this.GetAttemptNo()) {
+            var retry = this.getFourthFilter(json);
+            this.attempts++;
+            return retry
+          }
+          else {
+            console.log('Could not establish connection to server');
+            console.log(err);
+          }
         }
       })
     )

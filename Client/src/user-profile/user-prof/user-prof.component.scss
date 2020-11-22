@@ -1,26 +1,77 @@
-.titles{
-    margin-left: 50px;
-    font-weight: bold;
-    font-size: 35px;
+.titles {
+  margin-left: 50px;
+  font-weight: bold;
+  font-size: 35px;
+  font-family: 'Barlow', serif;
+  margin-top: 2%;
+  color: #056676;
 }
 
-.titlesL{
-    margin-left: 50px;
-    font-size: 35px;
+.titlesL {
+  margin-left: 50px;
+  font-size: 30px;
+  font-family: 'Barlow', serif;
+  margin-top: 2%;
+  padding-left: 2%;
+  font-weight: bold;
+  color: #056676;
 }
 
-.subButton{
-    margin-left: 50px;
-    font-size: 35px;
+.subButton {
+  margin-left: 50px;
+  font-size: 35px;
+
 }
 
 
-.edit{
-    margin-left: 200px;
-    font-size: 35px;
+.edit {
+  margin-left: 200px;
+  font-size: 35px;
 }
 
-.info{
-    margin-left: 10px;
-    font-size: 35px;
+.info {
+  margin-left: 17px;
+  font-size: 35px;
+  color: aliceblue;
+  font-weight: bold;
+  -webkit-text-stroke: 1px rgb(27, 27, 27);
+}
+
+.infob {
+  margin-left: 17px;
+  font-size: 35px;
+  color: aliceblue;
+  font-weight: bold;
+}
+
+.infot {
+  margin-left: 17px;
+  font-size: 35px;
+  color: rgb(27, 27, 27);
+  font-weight: bold;
+}
+
+#jumboAU {
+  margin-top: 0.5rem;
+  margin-bottom: 5rem;
+}
+
+#title {
+  font-family: 'EB Garamond', serif;
+  font-weight: bold;
+  color: #056676;
+}
+
+#desc {
+  font-family: 'EB Garamond', serif;
+  margin-top: 5%;
+  font-weight: bold;
+  color: #056676;
+}
+
+#btn-style {
+  background-color: #056676;
+  font-family: 'Barlow', sans-serif;
+  font-size: xx-large;
+  font-weight: bold;
 }
