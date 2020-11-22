@@ -1,0 +1,47 @@
+.container {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  align-content: center;
+  padding-left: 51%;
+  padding-top: 10%;
+  padding-bottom: 10%;
+}
+
+.mr-3 {
+  padding-top: 45px;
+  padding-left: 40px;
+}
+
+.media {
+  padding-bottom: 50px;
+  margin-bottom: 5%;
+
+}
+
+.media-body {
+  padding-top: 50px;
+
+}
+
+#main-title {
+  font-family: 'EB Garamond', serif;
+  font-size: 900%;
+  font-weight: bold;
+  color: #056676;
+  text-decoration: underline;
+}
+
+#title {
+  font-family: 'EB Garamond', serif;
+  font-size: 450%;
+  font-weight: bold;
+  color: #056676;
+}
+
+#bd {
+  font-family: 'Barlow', serif;
+  font-size: 200%;
+  font-weight: bold;
+  color: #fcfcfc;
+}

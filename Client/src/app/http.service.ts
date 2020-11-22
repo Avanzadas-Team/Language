@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -23,49 +24,155 @@ export class HttpService {
   //Http Service URLs
   private devURL: string = "https://localhost:44304/"; //This URL is used for development and testing only. When running test with the devURL make sure the local server is running.
   private rest1URL: string = "https://languagesrest1proy2.azurewebsites.net/";
-  private rest2URL: string = "https://languagesrest2proy2.azurewebsites.net/";
-  private rest3URL: string = "https://languagesrest3proy2.azurewebsites.net/";
+  private actualRest: string = '1';
+  private restURL: string = "https://languagesrest" + this.actualRest + "proy2.azurewebsites.net/";
+
 
   //Http Service Variables
 
 
   //Http Service Methods
-  GetUsers() { // gets all user from the DB, returns JSON Objects with all users.
-    return this.http.get(this.rest1URL + 'users/All'); //Change the restURl # as needed. 
-    //return this.http.get(this.rest2URL + 'users'); 
-    //return this.http.get(this.rest3URL + 'users');
+
+  NextURL() { //This function selects and active REST Service 
+    if (this.actualRest == '1') {
+      this.actualRest = '2';
+      this.restURL = "https://languagesrest" + this.actualRest + "proy2.azurewebsites.net/";
+    }
+    else if (this.actualRest == '2') {
+      this.actualRest = '3';
+      this.restURL = "https://languagesrest" + this.actualRest + "proy2.azurewebsites.net/";
+
+    }
+    else {
+      this.actualRest = '1'
+      this.restURL = "https://languagesrest" + this.actualRest + "proy2.azurewebsites.net/";
+    }
   }
 
-  registerUser(user){
-    return this.http.post(this.rest1URL + "createuser",user);
+  GetUsers() { // gets all user from the DB, returns JSON Objects with all users.
+    return this.http.get(this.restURL + 'users/All').pipe(
+      catchError((err) => {
+        console.log('error caught in service...')
+        if (err) {
+          console.error('Attempting connection with another node...');
+          this.NextURL();
+          var retry = this.GetUsers();
+          return retry
+        }
+      })
+    )
+  }
+
+  registerUser(user) {
+    return this.http.post(this.rest1URL + "createuser", user).pipe(
+      catchError((err) => {
+        console.log('error caught in service...')
+        if (err) {
+          console.error('Attempting connection with another node...');
+          this.NextURL();
+          var retry = this.registerUser(user);
+          return retry
+        }
+      })
+    )
   }
 
   GetUsersPerCountry() {
-    return this.http.get(this.rest1URL + 'upc');
+    return this.http.get(this.restURL + 'upc').pipe(
+      catchError((err) => {
+        console.log('error caught in service...')
+        if (err) {
+          console.error('Attempting connection with another node...');
+          this.NextURL();
+          var retry = this.GetUsersPerCountry();
+          return retry
+        }
+      })
+    )
   }
 
   GetUsersPerTLang() {
-    return this.http.get(this.rest1URL + 'upl/teach');
+    return this.http.get(this.restURL + 'upl/teach').pipe(
+      catchError((err) => {
+        console.log('error caught in service...')
+        if (err) {
+          console.error('Attempting connection with another node...');
+          this.NextURL();
+          var retry = this.GetUsersPerTLang();
+          return retry
+        }
+      })
+    )
   }
 
   GetUsersPerLLang() {
-    return this.http.get(this.rest1URL + 'upl/learn');
+    return this.http.get(this.restURL + 'upl/learn').pipe(
+      catchError((err) => {
+        console.log('error caught in service...')
+        if (err) {
+          console.error('Attempting connection with another node...');
+          this.NextURL();
+          var retry = this.GetUsersPerLLang();
+          return retry
+        }
+      })
+    )
   }
 
-  getUsrbyToTeach(json){
-    return this.http.post(this.rest1URL + 'filter/one',json);
+  getUsrbyToTeach(json) {
+    return this.http.post(this.rest1URL + 'filter/one', json).pipe(
+      catchError((err) => {
+        console.log('error caught in service...')
+        if (err) {
+          console.error('Attempting connection with another node...');
+          this.NextURL();
+          var retry = this.getUsrbyToTeach(json);
+          return retry
+        }
+      })
+    )
   }
 
-  getSecondFilter(json){
-    return this.http.post(this.rest1URL + 'filter/two',json);
+  getSecondFilter(json) {
+    return this.http.post(this.rest1URL + 'filter/two', json).pipe(
+      catchError((err) => {
+        console.log('error caught in service...')
+        if (err) {
+          console.error('Attempting connection with another node...');
+          this.NextURL();
+          var retry = this.getSecondFilter(json);
+          return retry
+        }
+      })
+    )
   }
 
-  getThirdFilter(json){
-    return this.http.post(this.rest1URL + 'filter/three', json);
+  getThirdFilter(json) {
+    return this.http.post(this.rest1URL + 'filter/three', json).pipe(
+      catchError((err) => {
+        console.log('error caught in service...')
+        if (err) {
+          console.error('Attempting connection with another node...');
+          this.NextURL();
+          var retry = this.getThirdFilter(json);
+          return retry
+        }
+      })
+    )
   }
 
-  getFourthFilter(json){
-    return this.http.post(this.rest1URL + 'filter/fourth', json);
+  getFourthFilter(json) {
+    return this.http.post(this.rest1URL + 'filter/fourth', json).pipe(
+      catchError((err) => {
+        console.log('error caught in service...')
+        if (err) {
+          console.error('Attempting connection with another node...');
+          this.NextURL();
+          var retry = this.getFourthFilter(json);
+          return retry
+        }
+      })
+    )
   }
 
 }
