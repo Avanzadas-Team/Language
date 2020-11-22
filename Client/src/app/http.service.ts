@@ -9,7 +9,7 @@ export class HttpService {
 
   /*If a module needs to implement the http service import the HttpClient module
       import { HttpClientModule } from '@angular/common/http';
-    into your module .module.ts imports section under @NgModule 
+    into your module .module.ts imports section under @NgModule
 
     Then add the http service using dependency injection by adding it into your component .ts constructor
       constructor(private http: HttpService) { }
@@ -33,7 +33,7 @@ export class HttpService {
 
   //Http Service Methods
 
-  NextURL() { //This function selects and active REST Service 
+  NextURL() { //This function selects and active REST Service
     if (this.actualRest == '1') {
       this.actualRest = '2';
       this.restURL = "https://languagesrest" + this.actualRest + "proy2.azurewebsites.net/";
@@ -106,7 +106,31 @@ export class HttpService {
   }
 
   GetUsersbyUsername(json){
-    return this.http.post(this.devURL + 'users/username', json);
+    return this.http.post(this.rest1URL + 'users/username', json).pipe(
+      catchError((err) => {
+        console.log('error caught in service...')
+        if (err) {
+          console.error('Attempting connection with another node...');
+          this.NextURL();
+          var retry = this.getUsrbyToTeach(json);
+          return retry
+        }
+      })
+    )
+  }
+
+  PostUserUpdate(json){
+    return this.http.post(this.rest1URL + 'users/update', json).pipe(
+      catchError((err) => {
+        console.log('error caught in service...')
+        if (err) {
+          console.error('Attempting connection with another node...');
+          this.NextURL();
+          var retry = this.getUsrbyToTeach(json);
+          return retry
+        }
+      })
+    )
   }
 
   GetUsersPerLLang() {

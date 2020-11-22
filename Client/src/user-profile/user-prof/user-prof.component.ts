@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { HttpService } from 'src/app/http.service';
 import { Usuario } from 'src/app/Models/Usuario';
 
@@ -9,7 +9,13 @@ import { Usuario } from 'src/app/Models/Usuario';
 })
 export class UserProfComponent implements OnInit {
 
-  holiwis: string = "holis";
+  constructor(private http : HttpService) { }
+
+  hobbie: string;
+
+  mediumAdd: string;
+
+  mediumRem: string;
 
   usuarioAct : Usuario = new Usuario();
 
@@ -17,9 +23,10 @@ export class UserProfComponent implements OnInit {
 
   editing: boolean = false;
 
-  addHob: string;
+  selected: string;
 
-  constructor(private http : HttpService) { }
+  mediums: string[] = ["skype", "whatsapp", "intercambio", "persona"];
+
 
   ngOnInit(): void {
     this.usuarioAct.NombreUsuario = "karce"
@@ -33,8 +40,12 @@ export class UserProfComponent implements OnInit {
       this.usuarioAct.Hobbies = usuario.hobbies;
       this.usuarioAct.MedioPrac = usuario.medioPrac;
       this.loading = false;
-      console.log(res);
-      console.log(this.usuarioAct);
+      this.usuarioAct.MedioPrac.forEach(med => {
+        const index = this.mediums.indexOf(med);
+        if(index !== -1){
+          this.mediums.splice(index,1);
+        }
+      });
     })
   }
 
@@ -42,8 +53,51 @@ export class UserProfComponent implements OnInit {
     this.editing = !this.editing;
   }
 
+
   addHobbie(){
-    console.log(this.addHob);
+    this.usuarioAct.Hobbies.push(this.hobbie);
+    console.log(this.usuarioAct.Hobbies);
   }
 
+  delHobbie(){
+    const index = this.usuarioAct.Hobbies.indexOf(this.selected);
+    if(index !== -1){
+      this.usuarioAct.Hobbies.splice(index,1);
+    }
+  }
+
+  addMedium(){
+    this.usuarioAct.MedioPrac.push(this.mediumAdd);
+
+    this.usuarioAct.MedioPrac.forEach(med => {
+      const index = this.mediums.indexOf(med);
+      if(index !== -1){
+        this.mediums.splice(index,1);
+      }
+    });
+
+  }
+
+  delMedium(){
+    const index = this.usuarioAct.MedioPrac.indexOf(this.mediumRem);
+    if(index !== -1){
+      this.usuarioAct.MedioPrac.splice(index,1);
+    }
+
+    this.mediums = ["skype", "whatsapp", "intercambio", "persona"];
+
+
+    this.usuarioAct.MedioPrac.forEach(med => {
+      const index = this.mediums.indexOf(med);
+      if(index !== -1){
+        this.mediums.splice(index,1);
+      }
+    });
+  }
+
+  submitChanges(){
+    this.http.PostUserUpdate(this.usuarioAct).subscribe(res=>{
+      window.location.reload();
+    });
+  }
 }

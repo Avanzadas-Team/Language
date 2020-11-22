@@ -47,5 +47,15 @@ namespace Server.Controllers
 
             return users;
         }
+
+        [HttpPost("update")]
+        public Usuario UpdatebyUserName(Usuario user)
+        {
+            var us = _userService.GetUserName(user.NombreUsuario);
+            us.MedioPrac = user.MedioPrac;
+            us.Hobbies = user.Hobbies;
+            _userService.Update(us.Id, us);
+            return user;
+        }
     }
 }
