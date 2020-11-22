@@ -60,5 +60,9 @@
         </select>
         <button class="btn btn-dark" (click)="addMediums()">Add Mean</button>
     </div>
-    <button (click) = "register()" class="btn-lg btn-dark">Register Account !</button>
+    <div>
+        <br>
+        <a [routerLink]="['/login']" routerLinkActive="active">Alredy have an account? Log in here :)</a>
+    </div>
+    <button (click) = "register()" class="btn-lg btn-dark">Register Account!</button>
 </div>
