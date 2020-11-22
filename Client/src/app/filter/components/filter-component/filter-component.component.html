@@ -4,11 +4,11 @@
   <p class="h4 text-center" id="desc">This page allows you search users by differents filters.</p>
 </div>
   
-  <div class="container-a" style="margin-left: 0%;">
+  <div class="container-a" id="filter-selector">
       <div class="row">
         <div class="col-sm-4">
-          <h2 class="ctitle">Filter</h2>
-          <label for="">Language to teach: </label>
+          <h2 class="ctitle" id="f-title">Filter</h2>
+          <label for="" id="f-bd">Language to teach: </label>
           <select name="language" id="language" class="form-control" [(ngModel)] = "language">
             <option [value]="l" *ngFor = "let l of languages" >{{ l }}</option>
           </select>
@@ -17,7 +17,7 @@
           </div>
           <div class="checkbox" *ngIf="active2 == 1">
             <input type="checkbox" value="-1" [(ngModel)]="seconF"> 
-            <label for="sfilter"> Filter per languages to learn? </label>
+            <label for="sfilter" id="f-bd"> Filter per languages to learn? </label>
           </div>
           <div *ngIf="seconF == 1">
             <label for="">Language to learn: </label>
@@ -28,7 +28,7 @@
           </div>
           <div class="checkbox" *ngIf="active3 == 1">
             <input type="checkbox" value="-1" [(ngModel)]="thirdF"> 
-            <label for="sfilter"> Filter per country? </label>
+            <label for="sfilter" id="f-bd"> Filter per country? </label>
           </div>
           <div *ngIf="thirdF == 1">
             <label for="country">Country: </label>
@@ -37,7 +37,7 @@
           </div>
           <div class="checkbox" *ngIf="active4 == 1">
             <input type="checkbox" value="-1" [(ngModel)]="fourthF"> 
-            <label for="sfilter"> Filter per age? </label>
+            <label for="sfilter" id="f-bd"> Filter per age? </label>
           </div>
           <div *ngIf="fourthF == 1">
             <label for="iage">Initial Age: </label>

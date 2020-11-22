@@ -15,18 +15,21 @@ namespace Server.Logic
            
             foreach(Usuario u in context.Get())
             {
-                Users temp = new Users();
-                temp.Name = u.Nombre;
-                temp.Country = u.POrigen;
-
-                StringBuilder bld = new StringBuilder();
-                for (int i = 0; i < u.IdiomasApr.Count; ++i)
+                if (u.TipoU==2)
                 {
-                    bld.Append(u.IdiomasApr[i].INombre);
-                    bld.Append(" ");
+                    Users temp = new Users();
+                    temp.Name = u.Nombre;
+                    temp.Country = u.POrigen;
+
+                    StringBuilder bld = new StringBuilder();
+                    for (int i = 0; i < u.IdiomasApr.Count; ++i)
+                    {
+                        bld.Append(u.IdiomasApr[i].INombre);
+                        bld.Append(" ");
+                    }
+                    temp.Languages = bld.ToString();
+                    userList.Add(temp);
                 }
-                temp.Languages = bld.ToString();
-                userList.Add(temp);
             }
             return userList;
         }
@@ -53,11 +56,11 @@ namespace Server.Logic
             List<string> countryList = new List<string>();
             foreach (Usuario u in users)
             {
-                if ((!countryList.Any()))
+                if ((!countryList.Any()) && u.TipoU == 2)
                 {
                     countryList.Add(u.POrigen);
                 }
-                else if (!(countryList.Contains(u.POrigen)))
+                else if (!(countryList.Contains(u.POrigen)) && u.TipoU == 2)
                 {
                     countryList.Add(u.POrigen);
                 }
@@ -74,7 +77,7 @@ namespace Server.Logic
                 var count = 0;
                 foreach (Usuario u in users)
                 {
-                    if (c == u.POrigen)
+                    if (c == u.POrigen && u.TipoU == 2)
                     {
                         count++;
                     }
@@ -121,13 +124,13 @@ namespace Server.Logic
             {
                 for (int i =0; i < u.IdiomasEns.Count; i++)
                 {
-                    if ((!langList.Any()))
+                    if ((!langList.Any()) && u.TipoU == 2)
                     {
                         langList.Add(u.IdiomasEns[i].INombre);
                     }
                     else
                     {
-                        if (!(langList.Contains(u.IdiomasEns[i].INombre)))
+                        if (!(langList.Contains(u.IdiomasEns[i].INombre)) && u.TipoU == 2)
                         {
                             langList.Add(u.IdiomasEns[i].INombre);
                         }
@@ -147,7 +150,7 @@ namespace Server.Logic
                 {
                     for (int i = 0; i < u.IdiomasEns.Count; i++)
                     {
-                        if (l == u.IdiomasEns[i].INombre)
+                        if (l == u.IdiomasEns[i].INombre && u.TipoU == 2)
                         {
                             count++;
                         }
@@ -167,13 +170,13 @@ namespace Server.Logic
             {
                 for (int i = 0; i < u.IdiomasApr.Count; i++)
                 {
-                    if ((!langList.Any()))
+                    if ((!langList.Any()) && u.TipoU == 2)
                     {
                         langList.Add(u.IdiomasApr[i].INombre);
                     }
                     else
                     {
-                        if (!(langList.Contains(u.IdiomasApr[i].INombre)))
+                        if (!(langList.Contains(u.IdiomasApr[i].INombre)) && u.TipoU == 2)
                         {
                             langList.Add(u.IdiomasApr[i].INombre);
                         }
@@ -193,7 +196,7 @@ namespace Server.Logic
                 {
                     for (int i = 0; i < u.IdiomasApr.Count; i++)
                     {
-                        if (l == u.IdiomasApr[i].INombre)
+                        if (l == u.IdiomasApr[i].INombre && u.TipoU==2)
                         {
                             count++;
                         }
