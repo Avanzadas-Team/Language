@@ -30,7 +30,7 @@
         <a class="nav-link" [routerLink]="['profile']" routerLinkActive="active">My Profile</a>
       </li>
       <li *ngIf="tipoU != '0'">
-        <button id="logbtn" class="btn btn-dark" (click)="logout()"><a [routerLink]="['']" routerLinkActive="active" ></a>Logout</button>
+        <button id="logbtn" [routerLink]="['login']" routerLinkActive="active" class="btn btn-dark" (click)="logout()">Logout</button>
       </li>
       </ul>
     </div>
