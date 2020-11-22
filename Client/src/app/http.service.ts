@@ -106,7 +106,7 @@ export class HttpService {
   }
 
   GetUsersbyUsername(json){
-    return this.http.post(this.rest1URL + 'users/username', json).pipe(
+    return this.http.post(this.restURL + 'users/username', json).pipe(
       catchError((err) => {
         console.log('error caught in service...')
         if (err) {
@@ -120,7 +120,7 @@ export class HttpService {
   }
 
   PostUserUpdate(json){
-    return this.http.post(this.rest1URL + 'users/update', json).pipe(
+    return this.http.post(this.restURL + 'users/update', json).pipe(
       catchError((err) => {
         console.log('error caught in service...')
         if (err) {
@@ -174,7 +174,7 @@ export class HttpService {
   }
 
   login(info){
-    return this.http.post(this.devURL + 'login', info).pipe(
+    return this.http.post(this.restURL + 'login', info).pipe(
       catchError((err) => {
         console.log('error caught in service...');
         if(err){

@@ -1,6 +1,7 @@
 import { Idioma } from './Idioma';
 
 export class Usuario{
+    Id: string = "";
     Nombre: string = "";
     Edad: number = 0;
     Sexo: string = "";

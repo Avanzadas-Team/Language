@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/app/http.service';
 import { Usuario } from 'src/app/Models/Usuario';
 
@@ -29,7 +29,7 @@ export class UserProfComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.usuarioAct.NombreUsuario = "karce"
+    this.usuarioAct.Id = localStorage.getItem("id")
     var usuario : any;
     this.http.GetUsersbyUsername(this.usuarioAct).subscribe(res =>{
       usuario = res;
@@ -47,6 +47,7 @@ export class UserProfComponent implements OnInit {
         }
       });
     })
+
   }
 
   toggleEditing(){
@@ -79,7 +80,7 @@ export class UserProfComponent implements OnInit {
   }
 
   delMedium(){
-    const index = this.usuarioAct.MedioPrac.indexOf(this.mediumRem);
+    var index = this.usuarioAct.MedioPrac.indexOf(this.mediumRem);
     if(index !== -1){
       this.usuarioAct.MedioPrac.splice(index,1);
     }
@@ -88,7 +89,7 @@ export class UserProfComponent implements OnInit {
 
 
     this.usuarioAct.MedioPrac.forEach(med => {
-      const index = this.mediums.indexOf(med);
+    index = this.mediums.indexOf(med);
       if(index !== -1){
         this.mediums.splice(index,1);
       }

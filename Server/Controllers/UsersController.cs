@@ -40,10 +40,8 @@ namespace Server.Controllers
         [HttpPost("username")]
         public Usuario GetUserbyUserName(Usuario user)
         {
-            System.Console.WriteLine(user.NombreUsuario);
 
-            var users = this._userService.GetUserName(user.NombreUsuario);
-
+            var users = this._userService.Get(user.Id);
 
             return users;
         }
