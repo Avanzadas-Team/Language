@@ -118,7 +118,46 @@ export class HttpService {
       })
     )
   }
+  getLanguagesEnsByUser(id){
+    return this.http.get(this.restURL + "filter/languagesens/" + id).pipe(
+      catchError((err) => {
+        console.log('error caught in service...');
+        if(err){
+          console.error('Attempting connection with another node...');
+          this.NextURL();
+          var retry = this.getLanguagesEnsByUser(id);
+          return retry
+        }
+      })
+    );
+  }
+  getLanguagesAprByUser(id){
+    return this.http.get(this.devURL + "filter/languagesapr/" + id).pipe(
+      catchError((err) => {
+        console.log('error caught in service...');
+        if(err){
+          console.error('Attempting connection with another node...');
+          this.NextURL();
+          var retry = this.getLanguagesAprByUser(id);
+          return retry
+        }
+      })
+    );
+  }
 
+  login(info){
+    return this.http.post(this.devURL + 'login', info).pipe(
+      catchError((err) => {
+        console.log('error caught in service...');
+        if(err){
+          console.error('Attempting connection with another node...');
+          this.NextURL();
+          var retry = this.login(info);
+          return retry
+        }
+      })
+    );
+  }
   getUsrbyToTeach(json) {
     return this.http.post(this.rest1URL + 'filter/one', json).pipe(
       catchError((err) => {
@@ -174,5 +213,4 @@ export class HttpService {
       })
     )
   }
-
 }

@@ -97,6 +97,46 @@ namespace Server.Logic
             return users;
         }
 
+        public List<string> getLanguagesensByID(UserContext context, string id)
+        {
+            List<string> languages = new List<string>();
+
+            foreach (Usuario u in context.Get())
+            {
+                if (u.Id == id)
+                {
+                    var len = u.IdiomasEns.Count;
+                    for (int i = 0; i < len; i++)
+                    {
+                        languages.Add(u.IdiomasEns[i].INombre);
+                    }
+                    break;
+                }
+            }
+
+            return languages;
+        }
+
+        public List<string> getLanguagesaprByID(UserContext context, string id)
+        {
+            List<string> languages = new List<string>();
+
+            foreach (Usuario u in context.Get())
+            {
+                if (u.Id == id)
+                {
+                    var len = u.IdiomasApr.Count;
+                    for (int i = 0; i < len; i++)
+                    {
+                        languages.Add(u.IdiomasApr[i].INombre);
+                    }
+                    break;
+                }
+            }
+
+            return languages;
+        }
+
 
     }
 }
