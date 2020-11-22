@@ -27,7 +27,7 @@
             <div class="form-group form-check">
                 <a [routerLink]="['/register']" routerLinkActive="active">Don't have an account? Create one here :)</a>
             </div>
-            <button class="btn btn-dark" (click)="login()">Login</button>
+            <button id="lg-btn" class="btn btn-dark" [routerLink]="['/']" routerLinkActive="active" (click)="login()">Login</button>
         </form>
     </div>
 </div>
