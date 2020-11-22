@@ -1,3 +1,4 @@
+import { LoginModule } from './login/login.module';
 import { FilterModule } from './filter/filter.module';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
@@ -24,7 +25,8 @@ import { UserProfileModule } from 'src/user-profile/user-profile.module';
     AdminModule,
     RegisterModule,
     FilterModule,
-    UserProfileModule
+    UserProfileModule,
+    LoginModule
   ],
   providers: [
     HttpService

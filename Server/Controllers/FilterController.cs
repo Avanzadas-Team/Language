@@ -47,5 +47,19 @@ namespace Server.Controllers
             var result = _fl.fourthFilter(_userService, filter);
             return result;
         }
+
+        [HttpGet("languagesens/{id}")]
+        public List<string> getLanguages(string id)
+        {
+            var result = _fl.getLanguagesensByID(_userService, id);
+            return result;
+        }
+
+        [HttpGet("languagesapr/{id}")]
+        public List<string> getLanguagesapr(string id)
+        {
+            var result = _fl.getLanguagesaprByID(_userService, id);
+            return result;
+        }
     }
 }

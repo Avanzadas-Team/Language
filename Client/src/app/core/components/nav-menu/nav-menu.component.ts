@@ -9,7 +9,15 @@ export class NavMenuComponent implements OnInit {
 
   constructor() { }
 
+  tipoU = localStorage.getItem("tipoU");
+
   ngOnInit(): void {
+  }
+
+  logout(){
+    location.reload();
+    localStorage.setItem("tipoU","0");
+    localStorage.setItem("id","");
   }
 
 }
