@@ -22,7 +22,7 @@ export class HttpService {
   constructor(private http: HttpClient) { }
 
   //Http Service URLs
-  private devURL: string = "https://localhost:44304/"; //This URL is used for development and testing only. When running test with the devURL make sure the local server is running.
+  private devURL: string = "https://localhost:5001/"; //This URL is used for development and testing only. When running test with the devURL make sure the local server is running.
   private rest1URL: string = "https://languagesrest1proy2.azurewebsites.net/";
   private actualRest: string = '1';
   private restURL: string = "https://languagesrest" + this.actualRest + "proy2.azurewebsites.net/";
@@ -103,6 +103,10 @@ export class HttpService {
         }
       })
     )
+  }
+
+  GetUsersbyUsername(json){
+    return this.http.post(this.devURL + 'users/username', json);
   }
 
   GetUsersPerLLang() {

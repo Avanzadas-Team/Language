@@ -1,0 +1,40 @@
+<div>
+    <div *ngIf="!this.loading">
+        <label class="titles">Name: </label>
+        <label class="info">{{this.usuarioAct.Nombre}}</label>
+    </div>
+    <div *ngIf="!this.loading">
+        <label class="titles">Username: </label>
+        <label class="info">{{this.usuarioAct.NombreUsuario}}</label>
+    </div>
+    <div *ngIf="!this.loading">
+        <label class="titles">Country: </label>
+        <label class="info">{{this.usuarioAct.POrigen}}</label>
+    <button class="edit" (click)="toggleEditing()">Editar Perfil</button>
+    </div>
+    <div *ngIf="!this.loading">
+        <label class="titles">Age: </label>
+        <label class="info">{{this.usuarioAct.Edad}}</label>
+    </div>
+    <div *ngIf="!this.loading">
+        <label class="titles">Hobbies: </label>
+        <label class="info">{{this.usuarioAct.Hobbies}}</label>
+    </div>
+    <div *ngIf="!this.loading">
+        <label class="titles">Means to practice: </label>
+        <label class="info">{{this.usuarioAct.MedioPrac}}</label>
+    </div>
+    <div *ngIf="this.editing">
+        <label class="titlesL">Seleccione un hobbie para eliminar de su lista: </label>
+        <select class="info">
+            <option value="" disabled>Hobbies</option>
+            <option *ngFor="let hob of this.usuarioAct.Hobbies" value="{{hob}}">{{hob}}</option>
+        </select>
+        <button class="info">Eliminar</button>
+    </div>
+    <div *ngIf="this.editing">
+        <label class="titlesL">Digite un hobbie para agregar a su lista: </label>
+        <input class="info" type="text" id="addHob" [(ngModel)]="addHob">
+        <button class="info" (click)="addHobbie()">Agregar</button>
+    </div>
+</div>

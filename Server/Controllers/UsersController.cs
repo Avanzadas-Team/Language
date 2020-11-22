@@ -36,5 +36,16 @@ namespace Server.Controllers
             var result = _al.GetAllUsers(_userService);
             return result;
         }
+
+        [HttpPost("username")]
+        public Usuario GetUserbyUserName(Usuario user)
+        {
+            System.Console.WriteLine(user.NombreUsuario);
+
+            var users = this._userService.GetUserName(user.NombreUsuario);
+
+
+            return users;
+        }
     }
 }

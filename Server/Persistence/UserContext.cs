@@ -23,6 +23,9 @@ namespace Server.Services
         public Usuario Get(string id) =>
             _users.Find<Usuario>(user => user.Id == id).FirstOrDefault();
 
+        public Usuario GetUserName(string username) =>
+            _users.Find<Usuario>(user => user.NombreUsuario == username).FirstOrDefault();
+
         public Usuario Create(Usuario user)
         {
             _users.InsertOne(user);
