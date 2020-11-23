@@ -14,10 +14,10 @@ export class NavMenuComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  logout(){
-    location.reload();
-    localStorage.setItem("tipoU","0");
-    localStorage.setItem("id","");
+  logout() {
+    location.replace('');
+    localStorage.setItem("tipoU", "0");
+    localStorage.setItem("id", "");
   }
 
 }
