@@ -23,6 +23,10 @@ export class UserProfComponent implements OnInit {
 
   editing: boolean = false;
 
+  editingH: boolean = false;
+
+  editingMP: boolean = false;
+
   selected: string;
 
   mediums: string[] = ["skype", "whatsapp", "intercambio", "persona"];
@@ -54,6 +58,13 @@ export class UserProfComponent implements OnInit {
     this.editing = !this.editing;
   }
 
+  toggleEditingH(){
+    this.editingH = !this.editingH;
+  }
+
+  toggleEditingMP(){
+    this.editingMP = !this.editingMP;
+  }
 
   addHobbie(){
     this.usuarioAct.Hobbies.push(this.hobbie);

@@ -15,7 +15,7 @@
     <div *ngIf="!this.loading">
         <label class="titles">Country: </label>
         <label class="info">{{this.usuarioAct.POrigen}}</label>
-    <button id="btn-style" class="edit btn btn-dark" (click)="toggleEditing()">Edit Profile</button>
+        <button id="btn-style" class="edit btn btn-dark" (click)="toggleEditing()">Edit Profile</button>
     </div>
     <div *ngIf="!this.loading">
         <label class="titles">Age: </label>
@@ -30,13 +30,14 @@
         <label class="info" *ngFor="let medium of this.usuarioAct.MedioPrac">{{medium}}</label>
     </div>
     <hr class="my-4">
-    
+
     <div *ngIf="this.editing">
         <p class="display-4" id="desc">Edit Info:</p>
         <hr class="my-4">
       <label class="titles">Hobbies</label>
+      <button id="btn-style" class="edit btn btn-dark" (click)="toggleEditingH()" *ngIf="this.editing">Edit</button>
     </div>
-    <div *ngIf="this.editing">
+    <div *ngIf="this.editingH">
         <label class="titlesL">Select a hobbie to remove: </label>
         <select class="infot" [(ngModel)]="selected">
             <option value="" disabled>Hobbies</option>
@@ -44,7 +45,7 @@
         </select>
         <button id="btn-style" class="infob btn btn-dark" (click)="delHobbie()">Delete</button>
     </div>
-    <div *ngIf="this.editing">
+    <div *ngIf="this.editingH">
         <label class="titlesL">Type a hobbie to add: </label>
         <input type="text" class="infot" [(ngModel)]="hobbie">
         <button id="btn-style" class="infob btn btn-dark" (click)="addHobbie()">Add</button>
@@ -52,8 +53,9 @@
     <div *ngIf="this.editing">
         <hr class="my-4">
       <label class="titles">Means to Practice</label>
+      <button id="btn-style" class="edit btn btn-dark" (click)="toggleEditingMP()" *ngIf="this.editing">Edit</button>
     </div>
-    <div *ngIf="this.editing">
+    <div *ngIf="this.editingMP">
       <label class="titlesL">Select a means to practice to remove: </label>
       <select class="infot" [(ngModel)]="mediumRem">
           <option value="" disabled>Means to Practice</option>
@@ -61,7 +63,7 @@
       </select>
       <button id="btn-style" class="infob btn btn-dark" (click)="delMedium()">Delete</button>
     </div>
-    <div *ngIf="this.editing">
+    <div *ngIf="this.editingMP">
         <label class="titlesL">Select a means to practice to add: </label>
         <select name="med" id="med" class="infot" [(ngModel)]="mediumAdd">
           <option *ngFor="let m of this.mediums" value="{{m}}">{{m}}</option>
